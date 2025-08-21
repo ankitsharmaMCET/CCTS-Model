@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTS Simulation Dashboard | Carbon Trading Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-800: #1e3a8a;
+            --primary-700: #1d4ed8;
+            --primary-600: #2563eb;
+            --primary-500: #3b82f6;
+            --primary-400: #60a5fa;
+            --primary-300: #93c5fd;
+            --primary-200: #bfdbfe;
+            --primary-100: #dbeafe;
+            --primary-50: #eff6ff;
+            
+            --accent-teal: #0d9488;
+            --accent-green: #059669;
+            --accent-orange: #ea580c;
+            --accent-red: #dc2626;
+            --accent-purple: #7e22ce;
+            
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-800);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary-800), var(--primary-600));
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .kpi-card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-600);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-600);
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-600);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            letter-spacing: -0.5px;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-800);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-600), var(--accent-teal));
+            border-radius: 3px;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 350px;
+            padding: 16px;
+        }
+        
+        .data-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-direction: column;
+            padding: 40px;
+        }
+        
+        .loader {
+            border: 4px solid var(--gray-300);
+            border-top: 4px solid var(--primary-600);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1.5s linear infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .compliance-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .compliant {
+            background-color: var(--accent-green);
+        }
+        
+        .non-compliant {
+            background-color: var(--accent-red);
+        }
+        
+        .year-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .year-btn {
+            padding: 10px 20px;
+            border-radius: 24px;
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-300);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .year-btn:hover {
+            background-color: var(--primary-100);
+            color: var(--primary-800);
+            border-color: var(--primary-300);
+        }
+        
+        .year-btn.active {
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+            color: white;
+            border-color: var(--primary-500);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .data-tab {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .data-tab.active {
+            background-color: var(--primary-100);
+            border-color: var(--primary-400);
+            color: var(--primary-800);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-content {
+            padding-top: 1.5rem;
+        }
+        
+        .comparison-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-600);
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .year-kpi {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .year-kpi:last-child {
+            border-bottom: none;
+        }
+        
+        .firm-explorer-section {
+            margin-top: 2rem;
+        }
+        
+        .firm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .firm-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-600);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .firm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .firm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-600);
+        }
+        
+        .firm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .firm-id {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary-800);
+            letter-spacing: -0.5px;
+        }
+        
+        .firm-sector {
+            background-color: var(--primary-100);
+            color: var(--primary-800);
+            padding: 0.3rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .firm-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+        
+        .firm-stat-value {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary-600);
+            letter-spacing: -0.5px;
+        }
+        
+        .firm-stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+        
+        .firm-compliance {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--gray-50);
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .firm-detail-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .firm-detail-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--gray-200);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-600);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            background: var(--primary-600);
+            color: white;
+        }
+        
+        .firm-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .firm-detail-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-800);
+            letter-spacing: -0.5px;
+        }
+        
+        .firm-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .firm-detail-section {
+            margin-bottom: 2rem;
+        }
+        
+        .firm-detail-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-800);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-100);
+        }
+        
+        .abatement-project {
+            background-color: var(--gray-50);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .abatement-project:hover {
+            transform: translateX(5px);
+            border-color: var(--primary-300);
+        }
+        
+        .abatement-project-name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--primary-700);
+        }
+        
+        .abatement-project-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .abatement-project-details > div {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .abatement-project-details div strong {
+            color: var(--gray-600);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .firm-performance-chart {
+            height: 300px;
+            margin-top: 1.5rem;
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 12px;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-400);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .sector-filter {
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 12px;
+            font-size: 1rem;
+            background-color: white;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .sector-filter:focus {
+            outline: none;
+            border-color: var(--primary-400);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .research-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .research-metric-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-teal);
+        }
+        
+        .research-metric-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .research-metric-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-800);
+            margin-bottom: 0.5rem;
+        }
+        
+        .research-metric-desc {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 280px;
+            background-color: var(--gray-800);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .transaction-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .buy-badge {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        .sell-badge {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th {
+            background-color: var(--gray-100);
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            color: var(--gray-700);
+            border-bottom: 2px solid var(--gray-300);
+        }
+        
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-300);
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table tr:hover {
+            background-color: var(--gray-100);
+        }
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: var(--gray-300);
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-600);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-600);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-600);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 8px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .firm-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .kpi-card {
+                padding: 1.5rem;
+            }
+            
+            .kpi-value {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .year-selector {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen">
+        <header class="dashboard-header text-white py-8 px-4 md:px-8">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <h1 class="text-3xl md:text-4xl font-bold flex items-center">
+                            <i class="fas fa-leaf mr-3"></i> 
+                            Carbon Credit Trading Scheme
+                        </h1>
+                        <p class="text-primary-200 mt-2">Agent-Based Simulation Dashboard</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-4">
+                            <div class="text-center">
+                                <div class="text-sm text-primary-200">Simulation Period</div>
+                                <div class="text-xl font-bold" id="simulation-period">2025-2027</div>
+                            </div>
+                        </div>
+                        <div class="text-sm text-primary-200 flex items-center" id="data-status">
+                            <i class="fas fa-spinner animate-spin mr-2"></i> Loading data...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8">
+            <section class="mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Select Year for Analysis</h2>
+                <div class="year-selector" id="year-selector">
+                    <div class="year-btn active" data-year="all">
+                        <i class="fas fa-chart-line mr-2"></i> All Years
+                    </div>
+                    <div class="year-btn" data-year="2025">
+                        <i class="fas fa-calendar-alt mr-2"></i> 2025
+                    </div>
+                    <div class="year-btn" data-year="2026">
+                        <i class="fas fa-calendar-alt mr-2"></i> 2026
+                    </div>
+                    <div class="year-btn" data-year="2027">
+                        <i class="fas fa-calendar-alt mr-2"></i> 2027
+                    </div>
+                    <div class="year-btn" data-year="compare">
+                        <i class="fas fa-exchange-alt mr-2"></i> Compare Years
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="kpi-card p-6">
+                        <div class="text-gray-600 mb-2 flex items-center">
+                            <i class="fas fa-building mr-2"></i> Firms Simulated
+                        </div>
+                        <div class="kpi-value" id="kpi-firms">0</div>
+                        <div class="text-sm text-gray-500 mt-2">Across various sectors</div>
+                    </div>
+                    <div class="kpi-card p-6">
+                        <div class="text-gray-600 mb-2 flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i> Compliance Rate
+                        </div>
+                        <div class="kpi-value" id="kpi-compliance">0%</div>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-fill" id="compliance-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="kpi-card p-6 pulse">
+                        <div class="text-gray-600 mb-2 flex items-center">
+                            <i class="fas fa-tag mr-2"></i> Carbon Price
+                        </div>
+                        <div class="kpi-value" id="kpi-price">₹0</div>
+                        <div class="text-sm mt-2" id="price-change"></div>
+                    </div>
+                    <div class="kpi-card p-6">
+                        <div class="text-gray-600 mb-2 flex items-center">
+                            <i class="fas fa-exchange-alt mr-2"></i> Credits Traded
+                        </div>
+                        <div class="kpi-value" id="kpi-volume">0</div>
+                        <div class="text-sm text-gray-500 mt-2" id="kpi-transactions-count">Total transactions</div>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="yearly-content">
+                <div class="year-view" id="all-years-view">
+                    <div class="section-card p-6 mb-12">
+                        <h2 class="section-title">High-Level Research Metrics</h2>
+                        <div class="research-metrics">
+                            <div class="research-metric-card">
+                                <div class="research-metric-value" id="metric-abatement">0 tons</div>
+                                <div class="research-metric-title">Total Abatement Achieved</div>
+                                <div class="research-metric-desc">Cumulative emissions reduction across all firms</div>
+                            </div>
+                            <div class="research-metric-card">
+                                <div class="research-metric-value" id="metric-cost">₹0</div>
+                                <div class="research-metric-title">Total Profit Earned</div>
+                                <div class="research-metric-desc">Aggregate financial performance of all firms</div>
+                            </div>
+                            <div class="research-metric-card">
+                                <div class="research-metric-value" id="metric-efficiency">0%</div>
+                                <div class="research-metric-title">Avg. Intensity Reduction</div>
+                                <div class="research-metric-desc">Average increase in production efficiency</div>
+                            </div>
+                            <div class="research-metric-card">
+                                <div class="research-metric-value" id="metric-liquidity">₹0</div>
+                                <div class="research-metric-title">Market Liquidity</div>
+                                <div class="research-metric-desc">Total value of credits traded</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        <div class="section-card p-6">
+                            <h2 class="section-title">Carbon Price & Volume Evolution</h2>
+                            <div class="chart-container">
+                                <div class="data-loader"><div class="loader"></div><div>Loading chart data...</div></div>
+                                <canvas id="price-volume-chart" class="hidden"></canvas>
+                            </div>
+                        </div>
+                        <div class="section-card p-6">
+                            <h2 class="section-title">Compliance Rate Over Time</h2>
+                            <div class="chart-container">
+                                <div class="data-loader"><div class="loader"></div><div>Loading chart data...</div></div>
+                                <canvas id="compliance-trend-chart" class="hidden"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        <div class="section-card p-6">
+                            <h2 class="section-title">Emissions & Abatement Trajectory</h2>
+                            <div class="chart-container">
+                                <div class="data-loader"><div class="loader"></div><div>Loading chart data...</div></div>
+                                <canvas id="emissions-abatement-chart" class="hidden"></canvas>
+                            </div>
+                        </div>
+                        <div class="section-card p-6">
+                            <h2 class="section-title">Abatement Contribution by Sector</h2>
+                            <div class="chart-container">
+                                <div class="data-loader"><div class="loader"></div><div>Loading chart data...</div></div>
+                                <canvas id="sector-abatement-chart" class="hidden"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="year-view hidden" id="single-year-view">
+                    <div class="section-card p-6 mb-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="section-title" id="year-title">Yearly Analysis</h2>
+                            <div class="bg-blue-100 text-blue-800 py-2 px-4 rounded-full text-sm font-medium flex items-center">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span id="selected-year">Year</span> Performance
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <div class="data-tab active" data-tab="overview">Overview</div>
+                            <div class="data-tab" data-tab="market">Market Dynamics</div>
+                            <div class="data-tab" data-tab="compliance">Compliance</div>
+                            <div class="data-tab" data-tab="abatement">Abatement</div>
+                            <div class="data-tab" data-tab="transactions">Transactions</div>
+                            <div class="data-tab" data-tab="summary">Summary</div>
+                        </div>
+                        
+                        <div id="tab-content">
+                            <div class="tab-pane active" id="overview-tab">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                    <div class="stat-card">
+                                        <div class="stat-value" id="year-emissions"></div>
+                                        <div class="stat-label">Total Emissions (tons)</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-value" id="year-abatement"></div>
+                                        <div class="stat-label">Total Abatement (tons)</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-value" id="year-transactions"></div>
+                                        <div class="stat-label">Market Transactions</div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    <div class="section-card p-6">
+                                        <h3 class="text-lg font-semibold mb-4">Emissions & Production by Sector</h3>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading chart data...</div></div>
+                                            <canvas id="year-sector-chart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="section-card p-6">
+                                        <h3 class="text-lg font-semibold mb-4">Emissions Intensity by Sector</h3>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading chart data...</div></div>
+                                            <canvas id="year-intensity-chart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane hidden" id="market-tab">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Price Volatility</h2>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                            <canvas id="volatilityChart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Market Depth Analysis</h2>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                            <canvas id="marketDepthChart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-card p-6">
+                                    <h2 class="section-title">Trading Volume over Time</h2>
+                                    <div class="chart-container">
+                                        <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                        <canvas id="tradingVolumeChart" class="hidden"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane hidden" id="compliance-tab">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Compliance Rate by Sector</h2>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                            <canvas id="complianceChart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Compliance Gap Analysis</h2>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                            <canvas id="complianceGapChart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-card p-6">
+                                    <h2 class="section-title">Banked Credits by Sector</h2>
+                                    <div class="chart-container">
+                                        <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                        <canvas id="bankedCreditsChart" class="hidden"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane hidden" id="abatement-tab">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Abatement by Sector</h2>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                            <canvas id="abatementSectorChart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Abatement Projects Distribution</h2>
+                                        <div class="chart-container">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                            <canvas id="year-abatement-chart" class="hidden"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-card p-6">
+                                    <h2 class="section-title">Abatement Effectiveness over Time</h2>
+                                    <div class="chart-container">
+                                        <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                        <canvas id="abatementEffectivenessChart" class="hidden"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane hidden" id="transactions-tab">
+                                <div class="section-card p-6 mb-8">
+                                    <h2 class="section-title">Recent Transactions</h2>
+                                    <div class="overflow-x-auto">
+                                        <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                        <table class="data-table hidden" id="transactions-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Step</th>
+                                                    <th>Type</th>
+                                                    <th>Buyer</th>
+                                                    <th>Seller</th>
+                                                    <th>Quantity</th>
+                                                    <th>Price</th>
+                                                    <th>Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="transactions-body"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="section-card p-6">
+                                    <h2 class="section-title">Transaction Timeline</h2>
+                                    <div class="chart-container">
+                                        <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                        <canvas id="transactionsTimelineChart" class="hidden"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane hidden" id="summary-tab">
+                                <div class="section-card p-6 mb-8">
+                                    <h2 class="section-title">Simulation Summary Report</h2>
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <div class="data-loader"><div class="loader"></div><div>Loading report...</div></div>
+                                        <pre class="whitespace-pre-wrap text-sm font-mono hidden" id="summary-report"></pre>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Key Parameters</h2>
+                                        <div class="space-y-4" id="parameters-list">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading parameters...</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Economic Impact</h2>
+                                        <div class="space-y-4" id="economic-impact">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading economic data...</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="section-card p-6">
+                                        <h2 class="section-title">Environmental Impact</h2>
+                                        <div class="space-y-4" id="environmental-impact">
+                                            <div class="data-loader"><div class="loader"></div><div>Loading environmental data...</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="year-view hidden" id="compare-years-view">
+                    <div class="section-card p-6 mb-8">
+                        <h2 class="section-title">Yearly Performance Comparison</h2>
+                        
+                        <div class="comparison-container">
+                            <div class="comparison-card">
+                                <h3 class="text-xl font-bold text-center mb-4 flex items-center justify-center">
+                                    <i class="fas fa-calendar mr-2"></i>2025
+                                </h3>
+                                <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                <div class="hidden" id="compare-2025-data">
+                                    <div class="year-kpi"><span>Carbon Price</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Compliance Rate</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Total Emissions</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Abatement Achieved</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Market Transactions</span><span class="font-bold"></span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <h3 class="text-xl font-bold text-center mb-4 flex items-center justify-center">
+                                    <i class="fas fa-calendar mr-2"></i>2026
+                                </h3>
+                                <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                <div class="hidden" id="compare-2026-data">
+                                    <div class="year-kpi"><span>Carbon Price</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Compliance Rate</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Total Emissions</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Abatement Achieved</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Market Transactions</span><span class="font-bold"></span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <h3 class="text-xl font-bold text-center mb-4 flex items-center justify-center">
+                                    <i class="fas fa-calendar mr-2"></i>2027
+                                </h3>
+                                <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                <div class="hidden" id="compare-2027-data">
+                                    <div class="year-kpi"><span>Carbon Price</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Compliance Rate</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Total Emissions</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Abatement Achieved</span><span class="font-bold"></span></div>
+                                    <div class="year-kpi"><span>Market Transactions</span><span class="font-bold"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 mb-12">
+                            <div class="section-card p-6">
+                                <h2 class="section-title">Emissions Reduction Progress</h2>
+                                <div class="chart-container">
+                                    <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                    <canvas id="emissions-comparison-chart" class="hidden"></canvas>
+                                </div>
+                            </div>
+                            <div class="section-card p-6">
+                                <h2 class="section-title">Compliance Rate Improvement</h2>
+                                <div class="chart-container">
+                                    <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                    <canvas id="compliance-comparison-chart" class="hidden"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="section-card p-6">
+                            <h2 class="section-title">Market Activity Over Years</h2>
+                            <div class="chart-container">
+                                <div class="data-loader"><div class="loader"></div><div>Loading data...</div></div>
+                                <canvas id="market-activity-chart" class="hidden"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-12 border-gray-300">
+
+            <section class="firm-explorer-section">
+                <div class="section-card p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="section-title">Firm Explorer</h2>
+                        <div class="text-sm text-gray-500">Showing <span id="firm-count">...</span> firms</div>
+                    </div>
+                    
+                    <div class="search-container">
+                        <input type="text" id="firm-search" placeholder="Search by Firm ID" class="search-input">
+                        <select id="sector-filter" class="sector-filter">
+                            <option value="all">All Sectors</option>
+                            <option value="ALUMINIUM">Aluminium</option>
+                            <option value="CEMENT">Cement</option>
+                            <option value="STEEL">Steel</option>
+                            <option value="TEXTILE">Textile</option>
+                            <option value="POWER">Power</option>
+                        </select>
+                    </div>
+                    
+                    <div class="firm-grid" id="firm-grid">
+                        <div class="data-loader">
+                            <div class="loader"></div>
+                            <div>Loading firm data...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="firm-detail-modal hidden" id="firm-detail-modal">
+                <div class="firm-detail-card">
+                    <button class="close-modal" id="close-modal">&times;</button>
+                    <div class="firm-detail-header">
+                        <h3 class="firm-detail-title" id="detail-firm-id"></h3>
+                        <div class="firm-sector" id="detail-firm-sector"></div>
+                    </div>
+                    
+                    <div class="firm-detail-grid">
+                        <div>
+                            <div class="firm-detail-section">
+                                <h4 class="firm-detail-section-title">Key Metrics</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="firm-stat">
+                                        <div class="firm-stat-value" id="detail-emissions"></div>
+                                        <div class="firm-stat-label">Annual Emissions (tons)</div>
+                                    </div>
+                                    <div class="firm-stat">
+                                        <div class="firm-stat-value" id="detail-production"></div>
+                                        <div class="firm-stat-label">Annual Production</div>
+                                    </div>
+                                    <div class="firm-stat">
+                                        <div class="firm-stat-value" id="detail-cash"></div>
+                                        <div class="firm-stat-label">Cash on Hand</div>
+                                    </div>
+                                    <div class="firm-stat">
+                                        <div class="firm-stat-value" id="detail-credits"></div>
+                                        <div class="firm-stat-label">Credits Owned</div>
+                                    </div>
+                                    <div class="firm-stat">
+                                        <div class="firm-stat-value" id="detail-abatement"></div>
+                                        <div class="firm-stat-label">Abated Tons</div>
+                                    </div>
+                                    <div class="firm-stat">
+                                        <div class="firm-compliance" id="detail-compliance"></div>
+                                        <div class="firm-stat-label">Compliance Status</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="firm-detail-section">
+                                <h4 class="firm-detail-section-title">Emissions Intensity</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="text-sm text-gray-600">Baseline Intensity</div>
+                                        <div class="text-xl font-bold" id="detail-baseline-intensity"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-gray-600">Current Intensity</div>
+                                        <div class="text-xl font-bold text-green-600" id="detail-current-intensity"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-gray-600">Target (<span id="detail-year">2027</span>)</div>
+                                        <div class="text-xl font-bold" id="detail-target-intensity"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-gray-600">Compliance Gap</div>
+                                        <div class="text-xl font-bold text-green-600" id="detail-compliance-gap"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="firm-detail-section">
+                                <h4 class="firm-detail-section-title">Abatement Strategy</h4>
+                                <div id="abatement-projects">
+                                    <div class="data-loader">
+                                        <div class="loader"></div>
+                                        <div>Loading projects...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="firm-detail-section">
+                                <h4 class="firm-detail-section-title">Performance Over Time</h4>
+                                <div class="firm-performance-chart">
+                                    <canvas id="firm-performance-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white py-8 px-4">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <h3 class="text-xl font-bold mb-2">CCTS Agent-Based Model</h3>
+                        <p class="text-gray-400">Carbon Credit Trading Simulation Dashboard</p>
+                    </div>
+                    <div class="text-gray-400 text-sm">
+                        <p><i class="fas fa-database mr-2"></i> Data loaded from `output/` folder</p>
+                        <p><i class="fas fa-clock mr-2"></i> Last updated: <span id="last-updated">Loading...</span></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+<script>
+    // Configuration
+    const DATA_FOLDER = 'output/';
+    const DATA_FILES = {
+        firms: 'initial_firms_data.csv',
+        model: 'model_data.csv',
+        transactions: 'transactions_log.csv',
+        sector_analysis: 'sector_analysis.csv', 
+        summary: 'simulation_summary_report.txt',
+        agent: 'agent_data.csv',
+        abatement_analysis: 'abatement_analysis.csv', 
+        // The file 'compliance_analysis.csv' is not generated by the model. 
+        // We will remove this and rely on 'analysis_summary.csv' for compliance data.
+        banking_analysis: 'banking_analysis.csv',
+        config: 'simulation_config.csv',
+        economic_analysis: 'economic_analysis.csv',
+        market_analysis: 'market_analysis.csv',
+        analysis: 'analysis_summary.csv',
+        yearly: 'yearly_summary_data.csv',
+        financial_history: 'agent_financial_history.csv',
+        abatement_projects: 'initial_macc_data.csv'
+    };
+    
+    let simulationData = {};
+    let selectedYear = "all";
+    let years = [2025, 2026, 2027]; // Will be dynamically updated
+
+    // Utility Functions
+    function formatNumber(num) {
+        if (num === null || isNaN(num)) return 'N/A';
+        const absNum = Math.abs(num);
+        if (absNum >= 1e12) return (num / 1e12).toFixed(1) + 'T';
+        if (absNum >= 1e9) return (num / 1e9).toFixed(1) + 'B';
+        if (absNum >= 1e6) return (num / 1e6).toFixed(1) + 'M';
+        if (absNum >= 1e3) return (num / 1e3).toFixed(1) + 'K';
+        return num.toLocaleString();
+    }
+
+    function formatCurrency(num) {
+        if (num === null || isNaN(num)) return 'N/A';
+        return `₹${formatNumber(num)}`;
+    }
+
+    function formatTons(num) {
+        if (num === null || isNaN(num)) return 'N/A tons';
+        const absNum = Math.abs(num);
+        if (absNum >= 1e6) return (num / 1e6).toFixed(1) + 'M tons';
+        if (absNum >= 1e3) return (num / 1e3).toFixed(0) + 'K tons';
+        return num.toLocaleString() + ' tons';
+    }
+
+    function safeFind(data, key, value) {
+        if (!data) return null;
+        return data.find(d => d[key] === value);
+    }
+
+    function safeFindValue(data, key, value, resultKey) {
+        const row = safeFind(data, key, value);
+        if (row && row[resultKey] !== undefined) {
+            if (typeof row[resultKey] === 'string') {
+                try {
+                    const parsed = JSON.parse(row[resultKey]);
+                    return parsed;
+                } catch (e) {
+                    return row[resultKey];
+                }
+            }
+            return row[resultKey];
+        }
+        return null;
+    }
+
+    function safeParse(str) {
+        try {
+            if (!str) return null;
+            const cleanedStr = str.replace(/'/g, '"').replace(/np.float64\(/g, '').replace(/np.int64\(/g, '').replace(/\)/g, '');
+            return JSON.parse(cleanedStr);
+        } catch (e) {
+            console.error("Failed to parse JSON string:", e);
+            return null;
+        }
+    }
+    
+    // Data Loading
+    async function loadData() {
+        try {
+            updateDataStatus('Loading data...');
+            const promises = Object.entries(DATA_FILES).map(async ([key, filename]) => {
+                const filePath = DATA_FOLDER + filename;
+                if (filename.endsWith('.csv')) {
+                    return new Promise((resolve, reject) => {
+                        Papa.parse(filePath, {
+                            download: true,
+                            header: true,
+                            dynamicTyping: true,
+                            skipEmptyLines: true,
+                            complete: (results) => {
+                                simulationData[key] = results.data;
+                                resolve();
+                            },
+                            error: (error) => reject(error)
+                        });
+                    });
+                } else if (filename.endsWith('.txt')) {
+                    const response = await fetch(filePath);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    simulationData[key] = await response.text();
+                }
+            });
+            await Promise.all(promises);
+            
+            updateDataStatus('Data loaded successfully!');
+            processData();
+            renderDashboard();
+        } catch (error) {
+            console.error('Error loading data:', error);
+            updateDataStatus(`Error: ${error.message}. Please check if the 'output' folder exists and is accessible via a local web server.`);
+        }
+    }
+    
+    function updateDataStatus(message) {
+        document.getElementById('data-status').textContent = message;
+        document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+    }
+    
+    // Data Processing & Rendering
+    function processData() {
+        const model = simulationData.model;
+        const firms = simulationData.firms;
+        const transactions = simulationData.transactions;
+
+        if (!model || model.length === 0) return;
+
+        const lastDataPoint = model[model.length - 1];
+        const firstPrice = model[0].Carbon_Price;
+        const lastPrice = lastDataPoint.Carbon_Price;
+        const priceChange = ((lastPrice - firstPrice) / firstPrice * 100).toFixed(1);
+
+        if (simulationData.yearly && simulationData.yearly.length > 0) {
+            years = simulationData.yearly.map(y => y.Year).sort((a,b) => a-b);
+        }
+
+        document.getElementById('simulation-period').textContent = `${years[0]}-${years[years.length - 1]}`;
+        
+        document.getElementById('kpi-firms').textContent = firms ? firms.length : 'N/A';
+        document.getElementById('kpi-price').textContent = formatCurrency(lastPrice);
+        document.getElementById('price-change').textContent = `${priceChange >= 0 ? '+' : ''}${priceChange}% from start`;
+        document.getElementById('kpi-compliance').textContent = `${(lastDataPoint.Compliance_Rate * 100).toFixed(1)}%`;
+        document.getElementById('compliance-progress').style.width = `${(lastDataPoint.Compliance_Rate * 100)}%`;
+        document.getElementById('kpi-volume').textContent = transactions ? transactions.length : 'N/A';
+        document.getElementById('kpi-transactions-count').textContent = `Total transactions: ${transactions ? transactions.length : 'N/A'}`
+
+        const abatementData = simulationData.abatement_analysis;
+        const economicData = simulationData.economic_analysis;
+        const analysisData = simulationData.analysis;
+        const marketData = simulationData.market_analysis;
+
+        if (abatementData && abatementData.length > 0) {
+            const totalAbatement = safeFindValue(abatementData, 'Metric', 'total_abatement', 'Value');
+            document.getElementById('metric-abatement').textContent = formatTons(totalAbatement);
+        }
+        if (economicData && economicData.length > 0) {
+            const totalProfit = safeFindValue(economicData, 'Metric', 'total_profit', 'Value');
+            document.getElementById('metric-cost').textContent = formatCurrency(totalProfit);
+        }
+        if (analysisData && analysisData.length > 0) {
+            const intensityGap = safeFindValue(analysisData, 'Metric', 'intensity_gap', 'Value');
+            document.getElementById('metric-efficiency').textContent = `${(intensityGap * -100).toFixed(1)}%`;
+        }
+        if (marketData && marketData.length > 0) {
+            const totalValue = safeFindValue(marketData, 'Metric', 'total_transaction_value', 'Value');
+            document.getElementById('metric-liquidity').textContent = formatCurrency(totalValue);
+        }
+
+        const yearSelector = document.getElementById('year-selector');
+        yearSelector.innerHTML = `
+            <div class="year-btn active" data-year="all"><i class="fas fa-chart-line mr-2"></i> All Years</div>
+        `;
+        simulationData.yearly.forEach(y => {
+            const yearButton = document.createElement('div');
+            yearButton.className = 'year-btn';
+            yearButton.dataset.year = y.Year;
+            yearButton.innerHTML = `<i class="fas fa-calendar-alt mr-2"></i> ${y.Year}`;
+            yearSelector.appendChild(yearButton);
+        });
+        const compareBtn = document.createElement('div');
+        compareBtn.className = 'year-btn';
+        compareBtn.dataset.year = 'compare';
+        compareBtn.innerHTML = `<i class="fas fa-exchange-alt mr-2"></i> Compare Years`;
+        yearSelector.appendChild(compareBtn);
+
+        processFirmData();
+    }
+
+    function renderDashboard() {
+        renderAllYearsView();
+        setupYearSelection();
+        setupSingleYearTabs();
+        renderFirmExplorer();
+    }
+
+    // --- Year-based Views ---
+    function setupYearSelection() {
+        const yearButtons = document.querySelectorAll('.year-btn');
+        yearButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                yearButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                selectedYear = button.dataset.year;
+                showYearView(selectedYear);
+            });
+        });
+    }
+    
+    function showYearView(view) {
+        document.querySelectorAll('.year-view').forEach(v => v.classList.add('hidden'));
+        const viewElement = document.getElementById(view + '-view');
+        if (viewElement) {
+            viewElement.classList.remove('hidden');
+        } else {
+            return;
+        }
+        
+        if (view === 'all') {
+            renderAllYearsView();
+        } else if (view === 'compare') {
+            renderCompareYearsView();
+        } else {
+            updateSingleYearView(view);
+        }
+    }
+
+    function renderAllYearsView() {
+        renderPriceVolumeChart();
+        renderComplianceTrendChart();
+        renderEmissionsAbatementChart();
+        renderSectorAbatementChart();
+    }
+
+    function renderCompareYearsView() {
+        const yearlyData = simulationData.yearly;
+        if (!yearlyData) return;
+        const years = yearlyData.map(y => y.Year);
+
+        for (const year of years) {
+            const container = document.getElementById(`compare-${year}-data`);
+            if (container) {
+                container.classList.remove('hidden');
+                const dataPoint = yearlyData.find(d => d.Year === year);
+                if (dataPoint) {
+                    document.querySelector(`#compare-${year}-data .year-kpi:nth-child(1) .font-bold`).textContent = formatCurrency(dataPoint.carbon_price);
+                    document.querySelector(`#compare-${year}-data .year-kpi:nth-child(2) .font-bold`).textContent = (dataPoint.compliance_rate * 100).toFixed(0) + '%';
+                    document.querySelector(`#compare-${year}-data .year-kpi:nth-child(3) .font-bold`).textContent = formatTons(dataPoint.total_annual_emissions);
+                    document.querySelector(`#compare-${year}-data .year-kpi:nth-child(4) .font-bold`).textContent = formatTons(dataPoint.total_abatement);
+                    document.querySelector(`#compare-${year}-data .year-kpi:nth-child(5) .font-bold`).textContent = dataPoint.total_trades_this_year;
+                }
+            }
+        }
+        renderEmissionsComparisonChart();
+        renderComplianceComparisonChart();
+        renderMarketActivityChart();
+    }
+
+    function updateSingleYearView(year) {
+        document.getElementById('selected-year').textContent = year;
+        document.getElementById('year-title').textContent = `${year} Analysis`;
+        const singleYearData = simulationData.yearly.find(d => d.Year === parseInt(year));
+        if (singleYearData) {
+            document.getElementById('year-emissions').textContent = formatTons(singleYearData.total_annual_emissions);
+            document.getElementById('year-abatement').textContent = formatTons(singleYearData.total_abatement);
+            document.getElementById('year-transactions').textContent = singleYearData.total_trades_this_year;
+        }
+        renderYearlyCharts(year);
+    }
+
+    // --- Tabbed Navigation & Content ---
+    function setupSingleYearTabs() {
+        const tabs = document.querySelectorAll('#single-year-view .data-tab');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                tabPanes.forEach(pane => pane.classList.add('hidden'));
+                
+                const tabId = tab.getAttribute('data-tab');
+                const paneElement = document.getElementById(`${tabId}-tab`);
+                if (paneElement) {
+                    paneElement.classList.remove('hidden');
+                } else {
+                    return;
+                }
+
+                const year = document.getElementById('selected-year').textContent;
+                switch(tabId) {
+                    case 'overview': renderYearlyCharts(year); break;
+                    case 'market': renderMarketCharts(year); break;
+                    case 'compliance': renderComplianceCharts(year); break;
+                    case 'abatement': renderAbatementCharts(year); break;
+                    case 'transactions': renderTransactions(year); renderTransactionsTimeline(year); break;
+                    case 'summary': renderSummaryReport(); renderSummaryStats(year); break;
+                }
+            });
+        });
+    }
+    
+    // Tab-specific render functions
+    function renderMarketCharts(year) {
+        const stepsPerYear = 12;
+        const startStep = (parseInt(year) - years[0]) * stepsPerYear;
+        const endStep = startStep + stepsPerYear;
+        const modelData = simulationData.model.filter(d => d.Step >= startStep && d.Step < endStep);
+        
+        const steps = modelData.map(d => d.Step);
+        
+        const volatility = modelData.map(d => d.Price_Volatility);
+        const volatilityCtx = document.getElementById('volatilityChart').getContext('2d');
+        if (window.volatilityChart) { window.volatilityChart.destroy(); }
+        window.volatilityChart = new Chart(volatilityCtx, { type: 'line', data: { labels: steps, datasets: [{ label: 'Price Volatility', data: volatility, borderColor: '#ef4444', tension: 0.3, fill: true, backgroundColor: 'rgba(239, 68, 68, 0.1)' }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: 'Volatility' } } } } });
+
+        const buyOrders = modelData.map(d => d.Buy_Orders);
+        const sellOrders = modelData.map(d => d.Sell_Orders);
+        const marketDepthCtx = document.getElementById('marketDepthChart').getContext('2d');
+        if (window.marketDepthChart) { window.marketDepthChart.destroy(); }
+        window.marketDepthChart = new Chart(marketDepthCtx, { type: 'bar', data: { labels: steps, datasets: [{ label: 'Buy Orders', data: buyOrders, backgroundColor: '#3b82f6' }, { label: 'Sell Orders', data: sellOrders, backgroundColor: '#ef4444' }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: 'Number of Orders' } } } } });
+
+        const tradingVolume = modelData.map(d => d.Market_Volume);
+        const tradingVolumeCtx = document.getElementById('tradingVolumeChart').getContext('2d');
+        if (window.tradingVolumeChart) { window.tradingVolumeChart.destroy(); }
+        window.tradingVolumeChart = new Chart(tradingVolumeCtx, { type: 'line', data: { labels: steps, datasets: [{ label: 'Trading Volume (Credits)', data: tradingVolume, borderColor: '#10b981', tension: 0.3, fill: true, backgroundColor: 'rgba(16, 185, 129, 0.1)' }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: 'Volume' } } } } });
+    }
+
+    function renderComplianceCharts(year) {
+        const sectorData = simulationData.sector_analysis.find(d => d.Year === parseInt(year));
+        if (!sectorData) return;
+        const sectors = Object.keys(sectorData).filter(k => k !== 'Year');
+        const complianceRates = sectors.map(s => sectorData[s].Compliance_rate * 100);
+        const complianceCtx = document.getElementById('complianceChart').getContext('2d');
+        if (window.complianceChart) { window.complianceChart.destroy(); }
+        window.complianceChart = new Chart(complianceCtx, { type: 'bar', data: { labels: sectors, datasets: [{ label: 'Compliance Rate (%)', data: complianceRates, backgroundColor: '#60a5fa', borderRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { min: 0, max: 100, title: { display: true, text: 'Compliance Rate (%)' } } } } });
+
+        const complianceData = simulationData.compliance_analysis.find(d => d.Year === parseInt(year));
+        if (complianceData) {
+            const compliantCount = complianceData.Count[complianceData.Status.indexOf('Compliant')] || 0;
+            const nonCompliantCount = complianceData.Count[complianceData.Status.indexOf('Non-Compliant')] || 0;
+            const complianceGapCtx = document.getElementById('complianceGapChart').getContext('2d');
+            if (window.complianceGapChart) { window.complianceGapChart.destroy(); }
+            window.complianceGapChart = new Chart(complianceGapCtx, { type: 'doughnut', data: { labels: ['Compliant', 'Non-Compliant'], datasets: [{ data: [compliantCount, nonCompliantCount], backgroundColor: ['#10b981', '#ef4444'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } } });
+        }
+
+        const bankingData = simulationData.banking_analysis.find(d => d.Year === parseInt(year));
+        if (bankingData) {
+            const bankingSectors = Object.keys(bankingData);
+            const totalCredits = bankingSectors.map(s => bankingData[s].Total_Credits);
+            const bankingCtx = document.getElementById('bankedCreditsChart').getContext('2d');
+            if (window.bankedCreditsChart) { window.bankedCreditsChart.destroy(); }
+            window.bankedCreditsChart = new Chart(bankingCtx, { type: 'bar', data: { labels: bankingSectors, datasets: [{ label: 'Total Credits Banked', data: totalCredits, backgroundColor: '#ea580c', borderRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: 'Total Credits' } } } } });
+        }
+    }
+
+    function renderAbatementCharts(year) {
+        const abatementData = simulationData.abatement_analysis.find(d => d.Year === parseInt(year));
+        if (!abatementData) return;
+        const abatementBySector = abatementData.abatement_by_sector;
+        if (abatementBySector) {
+            const sectors = Object.keys(abatementBySector);
+            const abatementTotals = sectors.map(s => abatementBySector[s].Total);
+            const abatementSectorCtx = document.getElementById('abatementSectorChart').getContext('2d');
+            if (window.abatementSectorChart) { window.abatementSectorChart.destroy(); }
+            window.abatementSectorChart = new Chart(abatementSectorCtx, { type: 'bar', data: { labels: sectors, datasets: [{ label: 'Total Abatement (tons)', data: abatementTotals, backgroundColor: '#10b981', borderRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: 'Abatement (tons)' } } } } });
+        }
+
+        const totalAbatement = abatementData.total_abatement;
+        const abatementParticipation = abatementData.abatement_participation_rate * 100;
+        const abatementEffectivenessCtx = document.getElementById('abatementEffectivenessChart').getContext('2d');
+        if (window.abatementEffectivenessChart) { window.abatementEffectivenessChart.destroy(); }
+        window.abatementEffectivenessChart = new Chart(abatementEffectivenessCtx, { type: 'polarArea', data: { labels: ['Total Abatement (tons)', 'Participation Rate (%)'], datasets: [{ data: [totalAbatement, abatementParticipation], backgroundColor: ['#3b82f6', '#ef4444'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+    }
+    
+    function renderTransactions(year) {
+        if (!simulationData.transactions) return;
+        const tbody = document.getElementById('transactions-body');
+        tbody.innerHTML = '';
+        
+        const transactionsToShow = simulationData.transactions.filter(t => {
+            const transactionYear = years[Math.floor((t.step - 1) / 12)];
+            return year === 'all' || transactionYear === parseInt(year);
+        });
+
+        transactionsToShow.forEach(t => {
+            const row = document.createElement('tr');
+            const isBuy = t.buyer_id.trim() === 'MarketStabilityReserve';
+            const value = t.quantity * t.price;
+            row.innerHTML = `
+                <td>${t.step}</td>
+                <td><span class="transaction-badge ${isBuy ? 'buy-badge' : 'sell-badge'}">${isBuy ? 'Buy' : 'Sell'}</span></td>
+                <td>${t.buyer_id}</td>
+                <td>${t.seller_id}</td>
+                <td>${t.quantity}</td>
+                <td>₹${parseFloat(t.price).toFixed(2)}</td>
+                <td>₹${value.toFixed(2)}</td>
+            `;
+            tbody.appendChild(row);
+        });
+        document.getElementById('transactions-table').classList.remove('hidden');
+    }
+
+    function renderTransactionsTimeline(year) {
+        const transactions = simulationData.transactions.filter(t => {
+            const transactionYear = years[Math.floor((t.step - 1) / 12)];
+            return year === 'all' || transactionYear === parseInt(year);
+        });
+        const steps = [...new Set(transactions.map(t => t.step))].sort((a,b) => a-b);
+        const counts = steps.map(step => transactions.filter(t => t.step === step).length);
+
+        const timelineCtx = document.getElementById('transactionsTimelineChart').getContext('2d');
+        if (window.transactionsTimelineChart) { window.transactionsTimelineChart.destroy(); }
+        window.transactionsTimelineChart = new Chart(timelineCtx, {
+            type: 'bar',
+            data: {
+                labels: steps,
+                datasets: [{
+                    label: 'Transactions per Step',
+                    data: counts,
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { title: { display: true, text: 'Number of Transactions' } }
+                }
+            }
+        });
+    }
+    
+    function renderSummaryReport() {
+        if (simulationData.summary) {
+            document.getElementById('summary-report').textContent = simulationData.summary;
+            document.getElementById('summary-report').classList.remove('hidden');
+        }
+    }
+    
+    function renderSummaryStats(year) {
+        const config = simulationData.config;
+        if (config && config.length > 0) {
+            const paramsList = document.getElementById('parameters-list');
+            const numSteps = safeFindValue(simulationData.config, 'parameter', 'num_steps', 'value');
+            paramsList.innerHTML = `
+                <div class="flex justify-between border-b pb-2"><span>Simulation Steps</span><span class="font-medium">${numSteps}</span></div>
+                <div class="flex justify-between border-b pb-2"><span>Initial Price</span><span class="font-medium">${formatCurrency(safeFindValue(simulationData.config, 'parameter', 'initial_carbon_price', 'value'))}</span></div>
+                <div class="flex justify-between border-b pb-2"><span>Penalty Rate</span><span class="font-medium">${formatCurrency(safeFindValue(simulationData.config, 'parameter', 'penalty_rate', 'value'))}/ton</span></div>
+                <div class="flex justify-between pb-2"><span>Price Floor</span><span class="font-medium">${formatCurrency(safeFindValue(simulationData.config, 'parameter', 'min_price', 'value'))}</span></div>
+                <div class="flex justify-between"><span>Price Ceiling</span><span class="font-medium">${formatCurrency(safeFindValue(simulationData.config, 'parameter', 'max_price', 'value'))}</span></div>
+            `;
+        }
+        const economicData = simulationData.economic_analysis;
+        if (economicData && economicData.length > 0) {
+            const totalProfit = safeFindValue(economicData, 'Metric', 'total_profit', 'Value');
+            const avgProfit = safeFindValue(economicData, 'Metric', 'average_profit', 'Value');
+            const economicImpact = document.getElementById('economic-impact');
+            economicImpact.innerHTML = `
+                <div class="flex justify-between border-b pb-2"><span>Total Profit Impact</span><span class="font-medium ${totalProfit >= 0 ? 'text-green-600' : 'text-red-600'}">${formatCurrency(totalProfit)}</span></div>
+                <div class="flex justify-between border-b pb-2"><span>Avg. Profit Impact</span><span class="font-medium ${avgProfit >= 0 ? 'text-green-600' : 'text-red-600'}">${formatCurrency(avgProfit)}/firm</span></div>
+            `;
+        }
+
+        const analysisData = simulationData.analysis;
+        if (analysisData && analysisData.length > 0) {
+            const totalEmissions = safeFindValue(analysisData, 'Metric', 'Total_Emissions', 'Value');
+            const totalAbatement = safeFindValue(analysisData, 'Metric', 'total_abatement', 'Value');
+            const intensityReduction = safeFindValue(analysisData, 'Metric', 'intensity_gap', 'Value');
+
+            const environmentalImpact = document.getElementById('environmental-impact');
+            environmentalImpact.innerHTML = `
+                <div class="flex justify-between border-b pb-2"><span>Total Emissions</span><span class="font-medium">${formatTons(totalEmissions)}</span></div>
+                <div class="flex justify-between border-b pb-2"><span>Total Abatement</span><span class="font-medium">${formatTons(totalAbatement)}</span></div>
+                <div class="flex justify-between"><span>Intensity Reduction</span><span class="font-medium">${(intensityReduction * -100).toFixed(1)}%</span></div>
+            `;
+        }
+    }
+    
+    // --- Shared Chart Rendering Functions (All and Compare Views) ---
+    function renderPriceVolumeChart() {
+        const modelData = simulationData.model;
+        const steps = modelData.map(d => d.Step);
+        const prices = modelData.map(d => d.Carbon_Price);
+        const volumes = modelData.map(d => d.Market_Volume);
+
+        const ctx = document.getElementById('price-volume-chart').getContext('2d');
+        if (window.priceVolumeChart) { window.priceVolumeChart.destroy(); }
+        window.priceVolumeChart = new Chart(ctx, { 
+            type: 'line', 
+            data: { 
+                labels: steps, 
+                datasets: [
+                    {
+                        label: 'Carbon Price (₹)', 
+                        data: prices, 
+                        borderColor: '#2563eb', 
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)', 
+                        tension: 0.3, 
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Market Volume',
+                        data: volumes,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        yAxisID: 'y1'
+                    }
+                ] 
+            }, 
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                scales: { 
+                    y: { 
+                        beginAtZero: false, 
+                        position: 'left',
+                        title: { display: true, text: 'Price (₹)' }
+                    },
+                    y1: {
+                        beginAtZero: true,
+                        position: 'right',
+                        title: { display: true, text: 'Volume (Credits)' },
+                        grid: { drawOnChartArea: false }
+                    }
+                } 
+            } 
+        });
+    }
+    
+    function renderComplianceTrendChart() {
+        const modelData = simulationData.model;
+        const steps = modelData.map(d => d.Step);
+        const complianceRates = modelData.map(d => (d.Compliance_Rate * 100).toFixed(1));
+        const ctx = document.getElementById('compliance-trend-chart').getContext('2d');
+        if (window.complianceTrendChart) { window.complianceTrendChart.destroy(); }
+        window.complianceTrendChart = new Chart(ctx, { type: 'bar', data: { labels: steps, datasets: [{ label: 'Compliance Rate (%)', data: complianceRates, backgroundColor: 'rgba(59, 130, 246, 0.8)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { min: 0, max: 100, title: { display: true, text: 'Compliance Rate (%)' } } } } });
+    }
+
+    function renderEmissionsAbatementChart() {
+        const modelData = simulationData.model;
+        const steps = modelData.map(d => d.Step);
+        const emissions = modelData.map(d => d.Total_Emissions);
+        const abatement = modelData.map(d => d.Total_Abated_Tons_Cumulative);
+
+        const ctx = document.getElementById('emissions-abatement-chart').getContext('2d');
+        if (window.emissionsAbatementChart) { window.emissionsAbatementChart.destroy(); }
+        window.emissionsAbatementChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: steps,
+                datasets: [
+                    { label: 'Total Emissions', data: emissions, borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', tension: 0.3, fill: true },
+                    { label: 'Cumulative Abatement', data: abatement, borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', tension: 0.3, fill: true }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { title: { display: true, text: 'Tonnes CO2e' } }
+                }
+            }
+        });
+    }
+
+    function renderSectorAbatementChart() {
+        const abatementData = simulationData.abatement_analysis.find(d => d.Metric === 'abatement_by_sector');
+        if (!abatementData) return;
+        const abatementBySector = safeParse(abatementData.Value);
+        if (!abatementBySector) return;
+
+        const sectors = Object.keys(abatementBySector);
+        const totals = sectors.map(s => abatementBySector[s].Total);
+        const ctx = document.getElementById('sector-abatement-chart').getContext('2d');
+        if (window.sectorAbatementChart) { window.sectorAbatementChart.destroy(); }
+        window.sectorAbatementChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sectors,
+                datasets: [{
+                    label: 'Total Abatement (tons)',
+                    data: totals,
+                    backgroundColor: '#2563eb',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { title: { display: true, text: 'Tonnes CO2e' } }
+                }
+            }
+        });
+    }
+
+    function renderEmissionsComparisonChart() {
+        const yearlyData = simulationData.yearly;
+        const years = yearlyData.map(d => d.Year);
+        const emissions = yearlyData.map(d => d.total_annual_emissions);
+        const abatement = yearlyData.map(d => d.total_abatement);
+
+        const ctx = document.getElementById('emissions-comparison-chart').getContext('2d');
+        if (window.emissionsComparisonChart) { window.emissionsComparisonChart.destroy(); }
+        window.emissionsComparisonChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    { label: 'Total Emissions', data: emissions, backgroundColor: '#ef4444' },
+                    { label: 'Total Abatement', data: abatement, backgroundColor: '#10b981' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { title: { display: true, text: 'Tonnes CO2e' } }
+                }
+            }
+        });
+    }
+
+    function renderComplianceComparisonChart() {
+        const yearlyData = simulationData.yearly;
+        const years = yearlyData.map(d => d.Year);
+        const rates = yearlyData.map(d => d.compliance_rate * 100);
+
+        const ctx = document.getElementById('compliance-comparison-chart').getContext('2d');
+        if (window.complianceComparisonChart) { window.complianceComparisonChart.destroy(); }
+        window.complianceComparisonChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Compliance Rate (%)',
+                    data: rates,
+                    borderColor: '#2563eb',
+                    tension: 0.3,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#2563eb',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { min: 0, max: 100, title: { display: true, text: 'Compliance Rate (%)' } }
+                }
+            }
+        });
+    }
+
+    function renderMarketActivityChart() {
+        const yearlyData = simulationData.yearly;
+        const years = yearlyData.map(d => d.Year);
+        const transactions = yearlyData.map(d => d.total_trades_this_year);
+        const volume = yearlyData.map(d => d.market_volume_this_year);
+
+        const ctx = document.getElementById('market-activity-chart').getContext('2d');
+        if (window.marketActivityChart) { window.marketActivityChart.destroy(); }
+        window.marketActivityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    { label: 'Total Trades', data: transactions, backgroundColor: '#3b82f6', yAxisID: 'y' },
+                    { label: 'Total Volume (Credits)', data: volume, backgroundColor: '#10b981', type: 'line', yAxisID: 'y1' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { title: { display: true, text: 'Total Trades' } },
+                    y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'Total Volume' }, grid: { drawOnChartArea: false } }
+                }
+            }
+        });
+    }
+
+    // --- Firm Explorer Logic ---
+    function processFirmData() {
+        if (!simulationData.agent || simulationData.agent.length === 0) return;
+        const latestStep = Math.max(...simulationData.agent.map(a => a.Step));
+        const latestFirmData = simulationData.agent.filter(a => a.Step === latestStep);
+        
+        simulationData.firmsData = latestFirmData.map(firm => {
+            const initialData = simulationData.firms?.find(f => f.firm_id && f.firm_id.trim() === firm.Firm_ID?.trim());
+            return { 
+                ...firm, 
+                sector: initialData?.sector || "Unknown",
+                baseline_emissions_intensity: initialData?.baseline_emissions_intensity || 0,
+                macc: initialData?.macc || "[]"
+            };
+        });
+        const sectors = [...new Set(simulationData.firmsData.map(f => f.sector))].sort();
+        const sectorFilter = document.getElementById('sector-filter');
+        sectorFilter.innerHTML = '<option value="all">All Sectors</option>';
+        sectors.forEach(sector => {
+            const option = document.createElement('option');
+            option.value = sector.trim();
+            option.textContent = sector.trim().split('_')[0];
+            sectorFilter.appendChild(option);
+        });
+    }
+    
+    function renderFirmExplorer() {
+        const firmGrid = document.getElementById('firm-grid');
+        if (!firmGrid) return;
+        
+        firmGrid.innerHTML = '';
+        
+        const searchTerm = (document.getElementById('firm-search')?.value || '').toLowerCase();
+        const sectorFilter = document.getElementById('sector-filter')?.value || 'all';
+        
+        const firmsToRender = simulationData.firmsData || [];
+        
+        const filteredFirms = firmsToRender.filter(firm => {
+            const firmId = firm.Firm_ID?.toLowerCase() || '';
+            const firmSector = firm.sector?.trim() || 'Unknown';
+            
+            const matchesSearch = firmId.includes(searchTerm);
+            const matchesSector = sectorFilter === 'all' || firmSector === sectorFilter;
+            
+            return matchesSearch && matchesSector;
+        });
+        
+        document.getElementById('firm-count').textContent = filteredFirms.length;
+        
+        if (filteredFirms.length === 0) {
+            firmGrid.innerHTML = '<div class="text-center py-8 text-gray-500 col-span-full">No firms match your search criteria</div>';
+            return;
+        }
+        
+        filteredFirms.forEach(firm => {
+            const firmCard = document.createElement('div');
+            firmCard.className = 'firm-card fade-in';
+            firmCard.dataset.id = firm.Firm_ID || '';
+            
+            const sector = firm.sector?.trim() || 'Unknown';
+            const displaySector = sector.split('_')[0];
+            const isCompliant = firm.Is_Compliant || false;
+            const emissions = firm.Annual_Emissions || 0;
+            const production = firm.Annual_Production || 0;
+            const credits = firm.Credits_Owned || 0;
+            const cash = firm.Cash || 0;
+            
+            firmCard.innerHTML = `
+                <div class="firm-header">
+                    <div class="firm-id">${firm.Firm_ID || 'N/A'}</div>
+                    <div class="firm-sector">${displaySector}</div>
+                </div>
+                <div class="firm-compliance">
+                    <span class="compliance-indicator ${isCompliant ? 'compliant' : 'non-compliant'}"></span>
+                    ${isCompliant ? 'Compliant' : 'Non-Compliant'}
+                </div>
+                <div class="firm-stats">
+                    <div class="firm-stat">
+                        <div class="firm-stat-value">${formatTons(emissions)}</div>
+                        <div class="firm-stat-label">Emissions</div>
+                    </div>
+                    <div class="firm-stat">
+                        <div class="firm-stat-value">${production >= 1e6 ? (production / 1e6).toFixed(1) + 'M' : production.toLocaleString()}</div>
+                        <div class="firm-stat-label">Production</div>
+                    </div>
+                    <div class="firm-stat">
+                        <div class="firm-stat-value">${credits.toLocaleString()}</div>
+                        <div class="firm-stat-label">Credits</div>
+                    </div>
+                    <div class="firm-stat">
+                        <div class="firm-stat-value">${formatCurrency(cash)}</div>
+                        <div class="firm-stat-label">Cash</div>
+                    </div>
+                </div>
+            `;
+            
+            if (firm.Firm_ID) {
+                firmCard.addEventListener('click', () => showFirmDetail(firm.Firm_ID.trim()));
+            }
+            firmGrid.appendChild(firmCard);
+        });
+    }
+    
+    function showFirmDetail(firmId) {
+        if (!firmId) return;
+        
+        const latestStep = Math.max(...simulationData.agent.map(a => a.Step));
+        const firm = simulationData.agent.find(f => f.Firm_ID && f.Firm_ID.trim() === firmId.trim() && f.Step === latestStep);
+        
+        if (!firm) return;
+        
+        const initialFirm = simulationData.firms?.find(f => f.firm_id && f.firm_id.trim() === firmId.trim());
+        const maccData = simulationData.abatement_projects?.filter(p => p.firm_id && p.firm_id.trim() === firmId.trim());
+
+        const sector = firm.Sector?.trim() || 'Unknown';
+        document.getElementById('detail-firm-id').textContent = firm.Firm_ID || 'N/A';
+        document.getElementById('detail-firm-sector').textContent = sector.split('_')[0];
+        document.getElementById('detail-emissions').textContent = formatTons(firm.Annual_Emissions || 0);
+        document.getElementById('detail-production').textContent = firm.Annual_Production >= 1e6 ? (firm.Annual_Production / 1e6).toFixed(2) + 'M' : firm.Annual_Production.toLocaleString();
+        document.getElementById('detail-cash').textContent = formatCurrency(firm.Cash || 0);
+        document.getElementById('detail-credits').textContent = (firm.Credits_Owned || 0).toLocaleString();
+        document.getElementById('detail-abatement').textContent = formatTons(firm.Abated_Tons_Cumulative || 0);
+        
+        const complianceEl = document.getElementById('detail-compliance');
+        if (complianceEl) {
+            const isCompliant = firm.Is_Compliant || false;
+            complianceEl.innerHTML = `
+                <span class="compliance-indicator ${isCompliant ? 'compliant' : 'non-compliant'}"></span>
+                ${isCompliant ? 'Compliant' : 'Non-Compliant'}
+            `;
+        }
+        
+        const baselineIntensity = initialFirm?.baseline_emissions_intensity || 0;
+        const currentIntensity = firm.Annual_Production ? (firm.Annual_Emissions || 0) / firm.Annual_Production : 0;
+        const targetIntensity = initialFirm?.target_emissions_intensity_2025 || baselineIntensity;
+        const complianceGap = firm.Compliance_Gap || 0;
+        
+        document.getElementById('detail-baseline-intensity').textContent = baselineIntensity.toFixed(2);
+        document.getElementById('detail-current-intensity').textContent = currentIntensity.toFixed(2);
+        document.getElementById('detail-target-intensity').textContent = targetIntensity.toFixed(2);
+        document.getElementById('detail-compliance-gap').textContent = complianceGap.toLocaleString();
+
+        const projectsContainer = document.getElementById('abatement-projects');
+        if (projectsContainer) {
+            projectsContainer.innerHTML = '';
+            if (maccData && maccData.length > 0) {
+                maccData.forEach(project => {
+                    const projectEl = document.createElement('div');
+                    projectEl.className = 'abatement-project';
+                    projectEl.innerHTML = `
+                        <div class="abatement-project-name">${project.project_name?.trim() || 'Unnamed Project'}</div>
+                        <div class="abatement-project-details">
+                            <div><strong>Cost per Tonne</strong><div>${formatCurrency(project.cost_per_tonne || 0)}</div></div>
+                            <div><strong>Abatement Potential</strong><div>${formatTons(project.abatement_potential || 0)}</div></div>
+                        </div>
+                    `;
+                    projectsContainer.appendChild(projectEl);
+                });
+            } else {
+                projectsContainer.innerHTML = '<div class="text-gray-500">No abatement project data available</div>';
+            }
+        }
+        
+        if (firm.Firm_ID) {
+            renderFirmPerformanceChart(firm.Firm_ID);
+        }
+        document.getElementById('firm-detail-modal').classList.remove('hidden');
+    }
+
+    function renderFirmPerformanceChart(firmId) {
+        const firmData = simulationData.financial_history.filter(a => a.Firm_ID.trim() === firmId.trim());
+        firmData.sort((a, b) => a.Step - b.Step);
+        
+        const steps = firmData.map(d => d.Step);
+        const revenues = firmData.map(d => d.Revenue);
+        const profits = firmData.map(d => d.Profit);
+        const costs = firmData.map(d => (d.Variable_Costs || 0) + (d.Carbon_Costs || 0) + (d.Abatement_Costs || 0));
+
+        const ctx = document.getElementById('firm-performance-chart').getContext('2d');
+        if (window.firmPerformanceChart) { window.firmPerformanceChart.destroy(); }
+        
+        window.firmPerformanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: steps,
+                datasets: [
+                    { label: 'Revenue (₹)', data: revenues, borderColor: '#10b981', tension: 0.3, fill: false },
+                    { label: 'Total Costs (₹)', data: costs, borderColor: '#ef4444', tension: 0.3, fill: false },
+                    { label: 'Profit (₹)', data: profits, borderColor: '#2563eb', tension: 0.3, fill: false, borderWidth: 3 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { title: { display: true, text: 'Amount (₹)' } }
+                }
+            }
+        });
+    }
+    
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('firm-search').addEventListener('input', renderFirmExplorer);
+        document.getElementById('sector-filter').addEventListener('change', renderFirmExplorer);
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('firm-detail-modal').classList.add('hidden');
+        });
+        loadData();
+    });
+</script>
+</body>
+</html>

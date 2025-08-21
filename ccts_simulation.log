@@ -1,0 +1,897 @@
+2025-08-21 17:03:15,757 - INFO - __main__ - ============================================================
+2025-08-21 17:03:15,758 - INFO - __main__ - STARTING ENHANCED CCTS CARBON TRADING SIMULATION
+2025-08-21 17:03:15,758 - INFO - __main__ - ============================================================
+2025-08-21 17:03:15,758 - INFO - __main__ - Loading data from directory: real_ccts_input/
+2025-08-21 17:03:15,768 - INFO - __main__ - Loaded firms: 202 rows, 15 columns
+2025-08-21 17:03:15,779 - INFO - __main__ - Loaded macc: 3710 rows, 5 columns
+2025-08-21 17:03:15,782 - INFO - __main__ - Loaded config: 8 rows, 2 columns
+2025-08-21 17:03:15,784 - INFO - __main__ - Loaded market_params: 10 rows, 2 columns
+2025-08-21 17:03:15,786 - INFO - __main__ - Input data validation completed
+2025-08-21 17:03:15,938 - INFO - __main__ - Data loading and processing completed successfully
+2025-08-21 17:03:15,938 - INFO - __main__ - Configuration: 24 steps (2.0 years)
+2025-08-21 17:03:15,939 - INFO - ccts.market - Carbon market initialized with price: ₹4000.00
+2025-08-21 17:03:15,952 - INFO - ccts.model - Created 202 firm agents out of 202 records
+2025-08-21 17:03:15,952 - INFO - ccts.model - CCTS Model initialized with 202 agents, 2 covered sectors
+2025-08-21 17:03:15,952 - INFO - __main__ - Starting simulation for 24 steps (2.0 years)
+2025-08-21 17:03:15,953 - INFO - ccts.agent - Firm CE_F32  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,953 - INFO - ccts.agent - Firm CE_F32  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,955 - INFO - ccts.agent - Firm CE_F63  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,955 - INFO - ccts.agent - Firm CE_F63  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,957 - INFO - ccts.agent - Firm AL_F6   started  Alumina energy efficiency          : Completion in 7 months
+2025-08-21 17:03:15,957 - INFO - ccts.agent - Firm AL_F6   started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:15,958 - INFO - ccts.agent - Firm AL_F14  started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:15,958 - INFO - ccts.agent - Firm AL_F14  started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:15,959 - INFO - ccts.agent - Firm CE_F22  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,959 - INFO - ccts.agent - Firm CE_F22  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:15,961 - INFO - ccts.agent - Firm CE_F144 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,961 - INFO - ccts.agent - Firm CE_F144 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:15,962 - INFO - ccts.agent - Firm CE_F175 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,962 - INFO - ccts.agent - Firm CE_F175 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,964 - INFO - ccts.agent - Firm CE_F115 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,964 - INFO - ccts.agent - Firm CE_F115 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,966 - INFO - ccts.agent - Firm CE_F54  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,966 - INFO - ccts.agent - Firm CE_F54  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:15,967 - INFO - ccts.agent - Firm CE_F149 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:15,968 - INFO - ccts.agent - Firm CE_F149 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:15,969 - INFO - ccts.agent - Firm CE_F95  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,969 - INFO - ccts.agent - Firm CE_F95  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,970 - INFO - ccts.agent - Firm CE_F70  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,970 - INFO - ccts.agent - Firm CE_F70  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:15,972 - INFO - ccts.agent - Firm CE_F37  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:15,972 - INFO - ccts.agent - Firm CE_F37  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,973 - INFO - ccts.agent - Firm CE_F182 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,973 - INFO - ccts.agent - Firm CE_F182 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,974 - INFO - ccts.agent - Firm CE_F30  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,975 - INFO - ccts.agent - Firm CE_F30  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,976 - INFO - ccts.agent - Firm CE_F91  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,976 - INFO - ccts.agent - Firm CE_F91  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,977 - INFO - ccts.agent - Firm CE_F178 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,977 - INFO - ccts.agent - Firm CE_F178 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,978 - INFO - ccts.agent - Firm CE_F15  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,978 - INFO - ccts.agent - Firm CE_F15  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,980 - INFO - ccts.agent - Firm CE_F150 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,980 - INFO - ccts.agent - Firm CE_F150 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,981 - INFO - ccts.agent - Firm AL_F3   started  Alumina energy efficiency          : Completion in 5 months
+2025-08-21 17:03:15,982 - INFO - ccts.agent - Firm AL_F3   started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:15,982 - INFO - ccts.agent - Firm CE_F110 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,982 - INFO - ccts.agent - Firm CE_F110 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,984 - INFO - ccts.agent - Firm CE_F181 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,984 - INFO - ccts.agent - Firm CE_F181 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,985 - INFO - ccts.agent - Firm CE_F132 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,985 - INFO - ccts.agent - Firm CE_F132 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:15,987 - INFO - ccts.agent - Firm CE_F65  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,987 - INFO - ccts.agent - Firm CE_F65  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,988 - INFO - ccts.agent - Firm CE_F21  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:15,988 - INFO - ccts.agent - Firm CE_F21  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,989 - INFO - ccts.agent - Firm CE_F123 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,989 - INFO - ccts.agent - Firm CE_F123 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:15,991 - INFO - ccts.agent - Firm CE_F147 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,991 - INFO - ccts.agent - Firm CE_F147 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,992 - INFO - ccts.agent - Firm CE_F61  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:15,992 - INFO - ccts.agent - Firm CE_F61  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,993 - INFO - ccts.agent - Firm AL_F4   started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:15,993 - INFO - ccts.agent - Firm AL_F4   started  Aluminium energy efficiency        : Completion in 6 months
+2025-08-21 17:03:15,994 - INFO - ccts.agent - Firm CE_F23  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:15,994 - INFO - ccts.agent - Firm CE_F23  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:15,995 - INFO - ccts.agent - Firm AL_F16  started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:15,995 - INFO - ccts.agent - Firm AL_F16  started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:15,996 - INFO - ccts.agent - Firm CE_F184 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:15,996 - INFO - ccts.agent - Firm CE_F184 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:15,997 - INFO - ccts.agent - Firm CE_F46  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,997 - INFO - ccts.agent - Firm CE_F46  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:15,999 - INFO - ccts.agent - Firm CE_F69  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:15,999 - INFO - ccts.agent - Firm CE_F69  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,000 - INFO - ccts.agent - Firm CE_F96  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,000 - INFO - ccts.agent - Firm CE_F96  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,001 - INFO - ccts.agent - Firm CE_F146 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,001 - INFO - ccts.agent - Firm CE_F146 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,002 - INFO - ccts.agent - Firm AL_F10  started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:16,002 - INFO - ccts.agent - Firm AL_F10  started  Aluminium energy efficiency        : Completion in 5 months
+2025-08-21 17:03:16,003 - INFO - ccts.agent - Firm AL_F13  started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:16,004 - INFO - ccts.agent - Firm AL_F13  started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:16,005 - INFO - ccts.agent - Firm CE_F27  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,005 - INFO - ccts.agent - Firm CE_F27  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,006 - INFO - ccts.agent - Firm CE_F148 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,007 - INFO - ccts.agent - Firm CE_F148 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,008 - INFO - ccts.agent - Firm CE_F137 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,008 - INFO - ccts.agent - Firm CE_F137 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,009 - INFO - ccts.agent - Firm CE_F58  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,009 - INFO - ccts.agent - Firm CE_F58  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,011 - INFO - ccts.agent - Firm CE_F29  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,011 - INFO - ccts.agent - Firm CE_F29  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,012 - INFO - ccts.agent - Firm CE_F104 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,012 - INFO - ccts.agent - Firm CE_F104 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,013 - INFO - ccts.agent - Firm CE_F49  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,014 - INFO - ccts.agent - Firm CE_F49  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,015 - INFO - ccts.agent - Firm CE_F1   started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,015 - INFO - ccts.agent - Firm CE_F1   started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,017 - INFO - ccts.agent - Firm AL_F1   started  Alumina energy efficiency          : Completion in 4 months
+2025-08-21 17:03:16,017 - INFO - ccts.agent - Firm AL_F1   started  Aluminium energy efficiency        : Completion in 5 months
+2025-08-21 17:03:16,018 - INFO - ccts.agent - Firm CE_F153 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,018 - INFO - ccts.agent - Firm CE_F153 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,019 - INFO - ccts.agent - Firm AL_F11  started  Alumina energy efficiency          : Completion in 4 months
+2025-08-21 17:03:16,019 - INFO - ccts.agent - Firm AL_F11  started  Aluminium energy efficiency        : Completion in 7 months
+2025-08-21 17:03:16,021 - INFO - ccts.agent - Firm CE_F157 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,021 - INFO - ccts.agent - Firm CE_F157 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,022 - INFO - ccts.agent - Firm CE_F116 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,022 - INFO - ccts.agent - Firm CE_F116 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,023 - INFO - ccts.agent - Firm CE_F45  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,023 - INFO - ccts.agent - Firm CE_F45  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,025 - INFO - ccts.agent - Firm CE_F6   started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,025 - INFO - ccts.agent - Firm CE_F6   started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,026 - INFO - ccts.agent - Firm CE_F98  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,026 - INFO - ccts.agent - Firm CE_F98  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,027 - INFO - ccts.agent - Firm CE_F140 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,027 - INFO - ccts.agent - Firm CE_F140 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,029 - INFO - ccts.agent - Firm CE_F62  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,029 - INFO - ccts.agent - Firm CE_F62  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,031 - INFO - ccts.agent - Firm CE_F51  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,031 - INFO - ccts.agent - Firm CE_F51  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,032 - INFO - ccts.agent - Firm CE_F87  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,032 - INFO - ccts.agent - Firm CE_F87  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,034 - INFO - ccts.agent - Firm CE_F159 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,034 - INFO - ccts.agent - Firm CE_F159 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,035 - INFO - ccts.agent - Firm CE_F183 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,035 - INFO - ccts.agent - Firm CE_F183 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,037 - INFO - ccts.agent - Firm CE_F94  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,037 - INFO - ccts.agent - Firm CE_F94  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,038 - INFO - ccts.agent - Firm CE_F64  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,038 - INFO - ccts.agent - Firm CE_F64  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,040 - INFO - ccts.agent - Firm CE_F112 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,040 - INFO - ccts.agent - Firm CE_F112 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,041 - INFO - ccts.agent - Firm CE_F155 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,041 - INFO - ccts.agent - Firm CE_F155 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,042 - INFO - ccts.agent - Firm CE_F17  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,043 - INFO - ccts.agent - Firm CE_F17  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,044 - INFO - ccts.agent - Firm CE_F107 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,044 - INFO - ccts.agent - Firm CE_F107 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,045 - INFO - ccts.agent - Firm CE_F106 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,045 - INFO - ccts.agent - Firm CE_F106 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,047 - INFO - ccts.agent - Firm CE_F130 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,047 - INFO - ccts.agent - Firm CE_F130 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,049 - INFO - ccts.agent - Firm CE_F86  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,049 - INFO - ccts.agent - Firm CE_F86  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,050 - INFO - ccts.agent - Firm CE_F131 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,050 - INFO - ccts.agent - Firm CE_F131 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,052 - INFO - ccts.agent - Firm CE_F108 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,052 - INFO - ccts.agent - Firm CE_F108 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,053 - INFO - ccts.agent - Firm CE_F4   started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,053 - INFO - ccts.agent - Firm CE_F4   started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,055 - INFO - ccts.agent - Firm AL_F15  started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:16,055 - INFO - ccts.agent - Firm AL_F15  started  Aluminium energy efficiency        : Completion in 6 months
+2025-08-21 17:03:16,056 - INFO - ccts.agent - Firm CE_F165 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,056 - INFO - ccts.agent - Firm CE_F165 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,057 - INFO - ccts.agent - Firm CE_F164 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,057 - INFO - ccts.agent - Firm CE_F164 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,059 - INFO - ccts.agent - Firm CE_F117 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,059 - INFO - ccts.agent - Firm CE_F117 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,060 - INFO - ccts.agent - Firm CE_F50  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,060 - INFO - ccts.agent - Firm CE_F50  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,061 - INFO - ccts.agent - Firm CE_F138 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,061 - INFO - ccts.agent - Firm CE_F138 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,063 - INFO - ccts.agent - Firm CE_F100 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,063 - INFO - ccts.agent - Firm CE_F100 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,064 - INFO - ccts.agent - Firm CE_F31  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,064 - INFO - ccts.agent - Firm CE_F31  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,066 - INFO - ccts.agent - Firm CE_F97  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,066 - INFO - ccts.agent - Firm CE_F97  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,067 - INFO - ccts.agent - Firm CE_F80  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,067 - INFO - ccts.agent - Firm CE_F80  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,068 - INFO - ccts.agent - Firm CE_F39  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,069 - INFO - ccts.agent - Firm CE_F39  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,070 - INFO - ccts.agent - Firm CE_F133 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,070 - INFO - ccts.agent - Firm CE_F133 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,072 - INFO - ccts.agent - Firm CE_F74  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,072 - INFO - ccts.agent - Firm CE_F74  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,073 - INFO - ccts.agent - Firm CE_F111 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,073 - INFO - ccts.agent - Firm CE_F111 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,074 - INFO - ccts.agent - Firm CE_F120 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,074 - INFO - ccts.agent - Firm CE_F120 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,075 - INFO - ccts.agent - Firm CE_F109 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,075 - INFO - ccts.agent - Firm CE_F109 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,077 - INFO - ccts.agent - Firm CE_F129 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,077 - INFO - ccts.agent - Firm CE_F129 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,078 - INFO - ccts.agent - Firm CE_F18  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,078 - INFO - ccts.agent - Firm CE_F18  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,079 - INFO - ccts.agent - Firm CE_F113 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,079 - INFO - ccts.agent - Firm CE_F113 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,080 - INFO - ccts.agent - Firm CE_F127 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,081 - INFO - ccts.agent - Firm CE_F127 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,082 - INFO - ccts.agent - Firm CE_F67  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,082 - INFO - ccts.agent - Firm CE_F67  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,083 - INFO - ccts.agent - Firm CE_F163 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,083 - INFO - ccts.agent - Firm CE_F163 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,084 - INFO - ccts.agent - Firm CE_F48  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,085 - INFO - ccts.agent - Firm CE_F48  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,086 - INFO - ccts.agent - Firm CE_F68  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,086 - INFO - ccts.agent - Firm CE_F68  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,087 - INFO - ccts.agent - Firm CE_F85  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,087 - INFO - ccts.agent - Firm CE_F85  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,088 - INFO - ccts.agent - Firm CE_F89  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,088 - INFO - ccts.agent - Firm CE_F89  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,090 - INFO - ccts.agent - Firm CE_F143 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,090 - INFO - ccts.agent - Firm CE_F143 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,091 - INFO - ccts.agent - Firm CE_F57  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,091 - INFO - ccts.agent - Firm CE_F57  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,092 - INFO - ccts.agent - Firm CE_F12  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,092 - INFO - ccts.agent - Firm CE_F12  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,094 - INFO - ccts.agent - Firm CE_F172 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,094 - INFO - ccts.agent - Firm CE_F172 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,095 - INFO - ccts.agent - Firm CE_F105 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,096 - INFO - ccts.agent - Firm CE_F105 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,097 - INFO - ccts.agent - Firm CE_F36  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,097 - INFO - ccts.agent - Firm CE_F36  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,099 - INFO - ccts.agent - Firm CE_F154 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,099 - INFO - ccts.agent - Firm CE_F154 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,100 - INFO - ccts.agent - Firm CE_F88  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,101 - INFO - ccts.agent - Firm CE_F88  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,101 - INFO - ccts.agent - Firm AL_F5   started  Alumina energy efficiency          : Completion in 7 months
+2025-08-21 17:03:16,102 - INFO - ccts.agent - Firm AL_F5   started  Aluminium energy efficiency        : Completion in 5 months
+2025-08-21 17:03:16,102 - INFO - ccts.agent - Firm CE_F90  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,102 - INFO - ccts.agent - Firm CE_F90  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,103 - INFO - ccts.agent - Firm CE_F14  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,103 - INFO - ccts.agent - Firm CE_F14  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,104 - INFO - ccts.agent - Firm CE_F171 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,105 - INFO - ccts.agent - Firm CE_F171 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,106 - INFO - ccts.agent - Firm CE_F84  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,106 - INFO - ccts.agent - Firm CE_F84  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,107 - INFO - ccts.agent - Firm CE_F83  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,107 - INFO - ccts.agent - Firm CE_F83  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,109 - INFO - ccts.agent - Firm CE_F160 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,109 - INFO - ccts.agent - Firm CE_F160 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,110 - INFO - ccts.agent - Firm CE_F118 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,110 - INFO - ccts.agent - Firm CE_F118 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,111 - INFO - ccts.agent - Firm CE_F152 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,111 - INFO - ccts.agent - Firm CE_F152 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,113 - INFO - ccts.agent - Firm CE_F13  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,113 - INFO - ccts.agent - Firm CE_F13  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,115 - INFO - ccts.agent - Firm CE_F121 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,115 - INFO - ccts.agent - Firm CE_F121 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,116 - INFO - ccts.agent - Firm CE_F142 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,116 - INFO - ccts.agent - Firm CE_F142 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,118 - INFO - ccts.agent - Firm CE_F66  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,118 - INFO - ccts.agent - Firm CE_F66  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,119 - INFO - ccts.agent - Firm CE_F103 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,119 - INFO - ccts.agent - Firm CE_F103 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,120 - INFO - ccts.agent - Firm CE_F19  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,120 - INFO - ccts.agent - Firm CE_F19  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,121 - INFO - ccts.agent - Firm CE_F33  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,121 - INFO - ccts.agent - Firm CE_F33  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,123 - INFO - ccts.agent - Firm CE_F161 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,123 - INFO - ccts.agent - Firm CE_F161 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,124 - INFO - ccts.agent - Firm CE_F125 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,124 - INFO - ccts.agent - Firm CE_F125 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,125 - INFO - ccts.agent - Firm CE_F177 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,126 - INFO - ccts.agent - Firm CE_F177 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,127 - INFO - ccts.agent - Firm CE_F119 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,127 - INFO - ccts.agent - Firm CE_F119 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,128 - INFO - ccts.agent - Firm CE_F167 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,128 - INFO - ccts.agent - Firm CE_F167 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,130 - INFO - ccts.agent - Firm CE_F28  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,130 - INFO - ccts.agent - Firm CE_F28  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,131 - INFO - ccts.agent - Firm CE_F3   started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,131 - INFO - ccts.agent - Firm CE_F3   started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,132 - INFO - ccts.agent - Firm CE_F53  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,132 - INFO - ccts.agent - Firm CE_F53  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,133 - INFO - ccts.agent - Firm CE_F38  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,133 - INFO - ccts.agent - Firm CE_F38  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,135 - INFO - ccts.agent - Firm CE_F75  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,135 - INFO - ccts.agent - Firm CE_F75  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,136 - INFO - ccts.agent - Firm CE_F79  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,136 - INFO - ccts.agent - Firm CE_F79  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,137 - INFO - ccts.agent - Firm CE_F26  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,137 - INFO - ccts.agent - Firm CE_F26  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,138 - INFO - ccts.agent - Firm CE_F78  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,138 - INFO - ccts.agent - Firm CE_F78  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,139 - INFO - ccts.agent - Firm CE_F101 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,140 - INFO - ccts.agent - Firm CE_F101 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,141 - INFO - ccts.agent - Firm CE_F162 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,141 - INFO - ccts.agent - Firm CE_F162 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,142 - INFO - ccts.agent - Firm CE_F145 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,142 - INFO - ccts.agent - Firm CE_F145 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,144 - INFO - ccts.agent - Firm CE_F10  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,144 - INFO - ccts.agent - Firm CE_F10  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,145 - INFO - ccts.agent - Firm CE_F168 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,146 - INFO - ccts.agent - Firm CE_F168 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,147 - INFO - ccts.agent - Firm CE_F134 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,147 - INFO - ccts.agent - Firm CE_F134 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,148 - INFO - ccts.agent - Firm CE_F59  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,148 - INFO - ccts.agent - Firm CE_F59  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,150 - INFO - ccts.agent - Firm CE_F43  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,150 - INFO - ccts.agent - Firm CE_F43  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,151 - INFO - ccts.agent - Firm CE_F141 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,151 - INFO - ccts.agent - Firm CE_F141 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,153 - INFO - ccts.agent - Firm CE_F2   started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,153 - INFO - ccts.agent - Firm CE_F2   started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,154 - INFO - ccts.agent - Firm CE_F34  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,154 - INFO - ccts.agent - Firm CE_F34  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,155 - INFO - ccts.agent - Firm CE_F77  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,156 - INFO - ccts.agent - Firm CE_F77  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,157 - INFO - ccts.agent - Firm CE_F60  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,157 - INFO - ccts.agent - Firm CE_F60  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,158 - INFO - ccts.agent - Firm CE_F126 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,158 - INFO - ccts.agent - Firm CE_F126 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,159 - INFO - ccts.agent - Firm CE_F5   started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,159 - INFO - ccts.agent - Firm CE_F5   started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,161 - INFO - ccts.agent - Firm CE_F81  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,161 - INFO - ccts.agent - Firm CE_F81  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,163 - INFO - ccts.agent - Firm CE_F16  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,163 - INFO - ccts.agent - Firm CE_F16  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,165 - INFO - ccts.agent - Firm CE_F122 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,165 - INFO - ccts.agent - Firm CE_F122 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,166 - INFO - ccts.agent - Firm CE_F102 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,166 - INFO - ccts.agent - Firm CE_F102 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,168 - INFO - ccts.agent - Firm AL_F12  started  Alumina energy efficiency          : Completion in 5 months
+2025-08-21 17:03:16,168 - INFO - ccts.agent - Firm AL_F12  started  Aluminium energy efficiency        : Completion in 7 months
+2025-08-21 17:03:16,169 - INFO - ccts.agent - Firm CE_F52  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,169 - INFO - ccts.agent - Firm CE_F52  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,170 - INFO - ccts.agent - Firm CE_F166 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,171 - INFO - ccts.agent - Firm CE_F166 started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,172 - INFO - ccts.agent - Firm CE_F73  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,172 - INFO - ccts.agent - Firm CE_F73  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,173 - INFO - ccts.agent - Firm CE_F76  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,173 - INFO - ccts.agent - Firm CE_F76  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,174 - INFO - ccts.agent - Firm CE_F9   started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,174 - INFO - ccts.agent - Firm CE_F9   started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,176 - INFO - ccts.agent - Firm CE_F82  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,176 - INFO - ccts.agent - Firm CE_F82  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,178 - INFO - ccts.agent - Firm CE_F170 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,178 - INFO - ccts.agent - Firm CE_F170 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,179 - INFO - ccts.agent - Firm CE_F179 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,179 - INFO - ccts.agent - Firm CE_F179 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,181 - INFO - ccts.agent - Firm CE_F71  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,181 - INFO - ccts.agent - Firm CE_F71  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,182 - INFO - ccts.agent - Firm CE_F169 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,182 - INFO - ccts.agent - Firm CE_F169 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,183 - INFO - ccts.agent - Firm CE_F24  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,183 - INFO - ccts.agent - Firm CE_F24  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,184 - INFO - ccts.agent - Firm CE_F156 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,184 - INFO - ccts.agent - Firm CE_F156 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,186 - INFO - ccts.agent - Firm CE_F72  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,186 - INFO - ccts.agent - Firm CE_F72  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,187 - INFO - ccts.agent - Firm CE_F180 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,187 - INFO - ccts.agent - Firm CE_F180 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,188 - INFO - ccts.agent - Firm CE_F25  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,188 - INFO - ccts.agent - Firm CE_F25  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,189 - INFO - ccts.agent - Firm AL_F2   started  Alumina energy efficiency          : Completion in 5 months
+2025-08-21 17:03:16,189 - INFO - ccts.agent - Firm AL_F2   started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:16,190 - INFO - ccts.agent - Firm CE_F56  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,190 - INFO - ccts.agent - Firm CE_F56  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,192 - INFO - ccts.agent - Firm CE_F135 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,192 - INFO - ccts.agent - Firm CE_F135 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,193 - INFO - ccts.agent - Firm CE_F99  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,193 - INFO - ccts.agent - Firm CE_F99  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,194 - INFO - ccts.agent - Firm CE_F41  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,195 - INFO - ccts.agent - Firm CE_F41  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,196 - INFO - ccts.agent - Firm CE_F92  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,196 - INFO - ccts.agent - Firm CE_F92  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,198 - INFO - ccts.agent - Firm CE_F176 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,198 - INFO - ccts.agent - Firm CE_F176 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,199 - INFO - ccts.agent - Firm CE_F151 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,199 - INFO - ccts.agent - Firm CE_F151 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,201 - INFO - ccts.agent - Firm CE_F35  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,201 - INFO - ccts.agent - Firm CE_F35  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,202 - INFO - ccts.agent - Firm CE_F128 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,202 - INFO - ccts.agent - Firm CE_F128 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,203 - INFO - ccts.agent - Firm CE_F186 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,203 - INFO - ccts.agent - Firm CE_F186 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,205 - INFO - ccts.agent - Firm CE_F139 started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,205 - INFO - ccts.agent - Firm CE_F139 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,208 - INFO - ccts.agent - Firm CE_F114 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,208 - INFO - ccts.agent - Firm CE_F114 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,210 - INFO - ccts.agent - Firm CE_F44  started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,210 - INFO - ccts.agent - Firm CE_F44  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,212 - INFO - ccts.agent - Firm CE_F40  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,212 - INFO - ccts.agent - Firm CE_F40  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,214 - INFO - ccts.agent - Firm CE_F8   started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,214 - INFO - ccts.agent - Firm CE_F8   started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,216 - INFO - ccts.agent - Firm AL_F8   started  Alumina energy efficiency          : Completion in 7 months
+2025-08-21 17:03:16,216 - INFO - ccts.agent - Firm AL_F8   started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:16,217 - INFO - ccts.agent - Firm AL_F9   started  Alumina energy efficiency          : Completion in 6 months
+2025-08-21 17:03:16,217 - INFO - ccts.agent - Firm AL_F9   started  Aluminium energy efficiency        : Completion in 4 months
+2025-08-21 17:03:16,218 - INFO - ccts.agent - Firm CE_F93  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,219 - INFO - ccts.agent - Firm CE_F93  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,220 - INFO - ccts.agent - Firm CE_F136 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,220 - INFO - ccts.agent - Firm CE_F136 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,222 - INFO - ccts.agent - Firm CE_F7   started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,222 - INFO - ccts.agent - Firm CE_F7   started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,223 - INFO - ccts.agent - Firm CE_F124 started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,224 - INFO - ccts.agent - Firm CE_F124 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,225 - INFO - ccts.agent - Firm CE_F185 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,225 - INFO - ccts.agent - Firm CE_F185 started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,226 - INFO - ccts.agent - Firm CE_F158 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,227 - INFO - ccts.agent - Firm CE_F158 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,228 - INFO - ccts.agent - Firm CE_F11  started  Efficient electrical equipment     : Completion in 5 months
+2025-08-21 17:03:16,228 - INFO - ccts.agent - Firm CE_F11  started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,230 - INFO - ccts.agent - Firm CE_F173 started  Efficient electrical equipment     : Completion in 7 months
+2025-08-21 17:03:16,230 - INFO - ccts.agent - Firm CE_F173 started  Waste heat recovery                : Completion in 5 months
+2025-08-21 17:03:16,232 - INFO - ccts.agent - Firm CE_F20  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,233 - INFO - ccts.agent - Firm CE_F20  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,234 - INFO - ccts.agent - Firm CE_F42  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,234 - INFO - ccts.agent - Firm CE_F42  started  Waste heat recovery                : Completion in 6 months
+2025-08-21 17:03:16,235 - INFO - ccts.agent - Firm CE_F47  started  Efficient electrical equipment     : Completion in 4 months
+2025-08-21 17:03:16,235 - INFO - ccts.agent - Firm CE_F47  started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,236 - INFO - ccts.agent - Firm CE_F55  started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,236 - INFO - ccts.agent - Firm CE_F55  started  Waste heat recovery                : Completion in 4 months
+2025-08-21 17:03:16,238 - INFO - ccts.agent - Firm CE_F174 started  Efficient electrical equipment     : Completion in 6 months
+2025-08-21 17:03:16,238 - INFO - ccts.agent - Firm CE_F174 started  Waste heat recovery                : Completion in 7 months
+2025-08-21 17:03:16,239 - INFO - ccts.agent - Firm AL_F7   started  Alumina energy efficiency          : Completion in 5 months
+2025-08-21 17:03:16,239 - INFO - ccts.agent - Firm AL_F7   started  Aluminium energy efficiency        : Completion in 6 months
+2025-08-21 17:03:16,240 - INFO - ccts.market - market_stability_reserve injected buy liquidity: 50.00 @ ₹1500.00
+2025-08-21 17:03:16,240 - INFO - ccts.market - market_stability_reserve injected sell liquidity: 50.00 @ ₹20000.00
+2025-08-21 17:03:16,533 - INFO - ccts.agent - Firm CE_F55  completed project  Waste heat recovery                
+2025-08-21 17:03:16,533 - INFO - ccts.agent - Firm CE_F61  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,534 - INFO - ccts.agent - Firm CE_F1   completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,535 - INFO - ccts.agent - Firm CE_F151 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,536 - INFO - ccts.agent - Firm CE_F96  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,537 - INFO - ccts.agent - Firm CE_F81  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,539 - INFO - ccts.agent - Firm AL_F16  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,539 - INFO - ccts.agent - Firm CE_F79  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,540 - INFO - ccts.agent - Firm CE_F137 completed project  Waste heat recovery                
+2025-08-21 17:03:16,541 - INFO - ccts.agent - Firm CE_F124 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,542 - INFO - ccts.agent - Firm CE_F162 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,543 - INFO - ccts.agent - Firm CE_F106 completed project  Waste heat recovery                
+2025-08-21 17:03:16,545 - INFO - ccts.agent - Firm CE_F98  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,547 - INFO - ccts.agent - Firm CE_F87  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,548 - INFO - ccts.agent - Firm AL_F11  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,549 - INFO - ccts.agent - Firm AL_F8   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,550 - INFO - ccts.agent - Firm CE_F22  completed project  Waste heat recovery                
+2025-08-21 17:03:16,553 - INFO - ccts.agent - Firm CE_F95  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,555 - INFO - ccts.agent - Firm CE_F54  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,556 - INFO - ccts.agent - Firm CE_F7   completed project  Waste heat recovery                
+2025-08-21 17:03:16,557 - INFO - ccts.agent - Firm CE_F93  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,561 - INFO - ccts.agent - Firm CE_F36  completed project  Waste heat recovery                
+2025-08-21 17:03:16,563 - INFO - ccts.agent - Firm CE_F148 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,564 - INFO - ccts.agent - Firm CE_F94  completed project  Waste heat recovery                
+2025-08-21 17:03:16,565 - INFO - ccts.agent - Firm CE_F161 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,568 - INFO - ccts.agent - Firm CE_F83  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,569 - INFO - ccts.agent - Firm CE_F39  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,570 - INFO - ccts.agent - Firm CE_F157 completed project  Waste heat recovery                
+2025-08-21 17:03:16,570 - INFO - ccts.agent - Firm CE_F18  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,572 - INFO - ccts.agent - Firm CE_F89  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,572 - INFO - ccts.agent - Firm CE_F89  completed project  Waste heat recovery                
+2025-08-21 17:03:16,573 - INFO - ccts.agent - Firm CE_F29  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,573 - INFO - ccts.agent - Firm CE_F29  completed project  Waste heat recovery                
+2025-08-21 17:03:16,575 - INFO - ccts.agent - Firm CE_F107 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,577 - INFO - ccts.agent - Firm CE_F129 completed project  Waste heat recovery                
+2025-08-21 17:03:16,578 - INFO - ccts.agent - Firm CE_F48  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,579 - INFO - ccts.agent - Firm CE_F90  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,581 - INFO - ccts.agent - Firm CE_F147 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,582 - INFO - ccts.agent - Firm CE_F44  completed project  Waste heat recovery                
+2025-08-21 17:03:16,582 - INFO - ccts.agent - Firm CE_F40  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,583 - INFO - ccts.agent - Firm CE_F47  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,584 - INFO - ccts.agent - Firm CE_F99  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,585 - INFO - ccts.agent - Firm CE_F72  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,586 - INFO - ccts.agent - Firm CE_F62  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,587 - INFO - ccts.agent - Firm CE_F20  completed project  Waste heat recovery                
+2025-08-21 17:03:16,588 - INFO - ccts.agent - Firm AL_F6   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,589 - INFO - ccts.agent - Firm CE_F33  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,590 - INFO - ccts.agent - Firm CE_F4   completed project  Waste heat recovery                
+2025-08-21 17:03:16,591 - INFO - ccts.agent - Firm CE_F186 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,592 - INFO - ccts.agent - Firm AL_F3   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,592 - INFO - ccts.agent - Firm CE_F115 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,593 - INFO - ccts.agent - Firm AL_F14  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,593 - INFO - ccts.agent - Firm CE_F103 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,594 - INFO - ccts.agent - Firm CE_F103 completed project  Waste heat recovery                
+2025-08-21 17:03:16,597 - INFO - ccts.agent - Firm CE_F105 completed project  Waste heat recovery                
+2025-08-21 17:03:16,598 - INFO - ccts.agent - Firm CE_F145 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,598 - INFO - ccts.agent - Firm CE_F145 completed project  Waste heat recovery                
+2025-08-21 17:03:16,599 - INFO - ccts.agent - Firm CE_F56  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,600 - INFO - ccts.agent - Firm CE_F38  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,601 - INFO - ccts.agent - Firm CE_F135 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,603 - INFO - ccts.agent - Firm CE_F121 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,604 - INFO - ccts.agent - Firm AL_F9   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,605 - INFO - ccts.agent - Firm CE_F75  completed project  Waste heat recovery                
+2025-08-21 17:03:16,607 - INFO - ccts.agent - Firm CE_F69  completed project  Waste heat recovery                
+2025-08-21 17:03:16,607 - INFO - ccts.agent - Firm CE_F101 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,608 - INFO - ccts.agent - Firm CE_F181 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,608 - INFO - ccts.agent - Firm CE_F41  completed project  Waste heat recovery                
+2025-08-21 17:03:16,610 - INFO - ccts.agent - Firm CE_F42  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,611 - INFO - ccts.agent - Firm AL_F2   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,612 - INFO - ccts.agent - Firm CE_F46  completed project  Waste heat recovery                
+2025-08-21 17:03:16,613 - INFO - ccts.agent - Firm CE_F31  completed project  Waste heat recovery                
+2025-08-21 17:03:16,614 - INFO - ccts.agent - Firm CE_F52  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,615 - INFO - ccts.agent - Firm AL_F1   completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,616 - INFO - ccts.agent - Firm CE_F70  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,617 - INFO - ccts.agent - Firm CE_F136 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,618 - INFO - ccts.agent - Firm CE_F168 completed project  Waste heat recovery                
+2025-08-21 17:03:16,619 - INFO - ccts.agent - Firm CE_F78  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,620 - INFO - ccts.agent - Firm CE_F78  completed project  Waste heat recovery                
+2025-08-21 17:03:16,620 - INFO - ccts.agent - Firm CE_F17  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,622 - INFO - ccts.agent - Firm CE_F76  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,623 - INFO - ccts.agent - Firm CE_F5   completed project  Waste heat recovery                
+2025-08-21 17:03:16,623 - INFO - ccts.agent - Firm CE_F8   completed project  Waste heat recovery                
+2025-08-21 17:03:16,624 - INFO - ccts.agent - Firm CE_F159 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,625 - INFO - ccts.agent - Firm CE_F24  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,626 - INFO - ccts.agent - Firm CE_F117 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,627 - INFO - ccts.agent - Firm CE_F10  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,628 - INFO - ccts.agent - Firm CE_F144 completed project  Waste heat recovery                
+2025-08-21 17:03:16,629 - INFO - ccts.agent - Firm CE_F131 completed project  Waste heat recovery                
+2025-08-21 17:03:16,630 - INFO - ccts.agent - Firm CE_F166 completed project  Waste heat recovery                
+2025-08-21 17:03:16,630 - INFO - ccts.agent - Firm AL_F13  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,633 - INFO - ccts.agent - Firm CE_F141 completed project  Waste heat recovery                
+2025-08-21 17:03:16,634 - INFO - ccts.agent - Firm CE_F86  completed project  Waste heat recovery                
+2025-08-21 17:03:16,634 - INFO - ccts.agent - Firm CE_F12  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,675 - INFO - ccts.agent - Firm CE_F177 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,676 - INFO - ccts.agent - Firm CE_F4   completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,677 - INFO - ccts.agent - Firm AL_F7   completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,678 - INFO - ccts.agent - Firm CE_F35  completed project  Waste heat recovery                
+2025-08-21 17:03:16,679 - INFO - ccts.agent - Firm CE_F23  completed project  Waste heat recovery                
+2025-08-21 17:03:16,680 - INFO - ccts.agent - Firm CE_F69  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,681 - INFO - ccts.agent - Firm CE_F99  completed project  Waste heat recovery                
+2025-08-21 17:03:16,682 - INFO - ccts.agent - Firm CE_F154 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,683 - INFO - ccts.agent - Firm CE_F172 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,685 - INFO - ccts.agent - Firm CE_F112 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,686 - INFO - ccts.agent - Firm CE_F182 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,687 - INFO - ccts.agent - Firm CE_F133 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,688 - INFO - ccts.agent - Firm AL_F1   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,688 - INFO - ccts.agent - Firm CE_F128 completed project  Waste heat recovery                
+2025-08-21 17:03:16,689 - INFO - ccts.agent - Firm CE_F9   completed project  Waste heat recovery                
+2025-08-21 17:03:16,690 - INFO - ccts.agent - Firm CE_F121 completed project  Waste heat recovery                
+2025-08-21 17:03:16,691 - INFO - ccts.agent - Firm CE_F87  completed project  Waste heat recovery                
+2025-08-21 17:03:16,692 - INFO - ccts.agent - Firm AL_F3   completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,694 - INFO - ccts.agent - Firm CE_F110 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,694 - INFO - ccts.agent - Firm CE_F110 completed project  Waste heat recovery                
+2025-08-21 17:03:16,696 - INFO - ccts.agent - Firm CE_F32  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,696 - INFO - ccts.agent - Firm CE_F32  completed project  Waste heat recovery                
+2025-08-21 17:03:16,698 - INFO - ccts.agent - Firm CE_F90  completed project  Waste heat recovery                
+2025-08-21 17:03:16,699 - INFO - ccts.agent - Firm CE_F68  completed project  Waste heat recovery                
+2025-08-21 17:03:16,700 - INFO - ccts.agent - Firm CE_F11  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,700 - INFO - ccts.agent - Firm CE_F11  completed project  Waste heat recovery                
+2025-08-21 17:03:16,700 - INFO - ccts.agent - Firm CE_F97  completed project  Waste heat recovery                
+2025-08-21 17:03:16,701 - INFO - ccts.agent - Firm CE_F15  completed project  Waste heat recovery                
+2025-08-21 17:03:16,702 - INFO - ccts.agent - Firm CE_F150 completed project  Waste heat recovery                
+2025-08-21 17:03:16,702 - INFO - ccts.agent - Firm CE_F41  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,703 - INFO - ccts.agent - Firm CE_F64  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,704 - INFO - ccts.agent - Firm CE_F137 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,704 - INFO - ccts.agent - Firm AL_F2   completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,706 - INFO - ccts.agent - Firm CE_F134 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,706 - INFO - ccts.agent - Firm CE_F134 completed project  Waste heat recovery                
+2025-08-21 17:03:16,707 - INFO - ccts.agent - Firm CE_F152 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,707 - INFO - ccts.agent - Firm CE_F59  completed project  Waste heat recovery                
+2025-08-21 17:03:16,708 - INFO - ccts.agent - Firm CE_F135 completed project  Waste heat recovery                
+2025-08-21 17:03:16,709 - INFO - ccts.agent - Firm CE_F74  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,711 - INFO - ccts.agent - Firm CE_F43  completed project  Waste heat recovery                
+2025-08-21 17:03:16,712 - INFO - ccts.agent - Firm CE_F114 completed project  Waste heat recovery                
+2025-08-21 17:03:16,712 - INFO - ccts.agent - Firm AL_F10  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,713 - INFO - ccts.agent - Firm CE_F173 completed project  Waste heat recovery                
+2025-08-21 17:03:16,714 - INFO - ccts.agent - Firm CE_F48  completed project  Waste heat recovery                
+2025-08-21 17:03:16,715 - INFO - ccts.agent - Firm CE_F91  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,715 - INFO - ccts.agent - Firm CE_F91  completed project  Waste heat recovery                
+2025-08-21 17:03:16,716 - INFO - ccts.agent - Firm CE_F127 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,717 - INFO - ccts.agent - Firm CE_F169 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,717 - INFO - ccts.agent - Firm CE_F169 completed project  Waste heat recovery                
+2025-08-21 17:03:16,718 - INFO - ccts.agent - Firm AL_F5   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,718 - INFO - ccts.agent - Firm CE_F21  completed project  Waste heat recovery                
+2025-08-21 17:03:16,720 - INFO - ccts.agent - Firm CE_F180 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,720 - INFO - ccts.agent - Firm CE_F180 completed project  Waste heat recovery                
+2025-08-21 17:03:16,720 - INFO - ccts.agent - Firm CE_F131 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,722 - INFO - ccts.agent - Firm CE_F80  completed project  Waste heat recovery                
+2025-08-21 17:03:16,723 - INFO - ccts.agent - Firm CE_F140 completed project  Waste heat recovery                
+2025-08-21 17:03:16,724 - INFO - ccts.agent - Firm CE_F163 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,726 - INFO - ccts.agent - Firm AL_F12  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,727 - INFO - ccts.agent - Firm CE_F141 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,728 - INFO - ccts.agent - Firm CE_F25  completed project  Waste heat recovery                
+2025-08-21 17:03:16,729 - INFO - ccts.agent - Firm CE_F37  completed project  Waste heat recovery                
+2025-08-21 17:03:16,729 - INFO - ccts.agent - Firm CE_F136 completed project  Waste heat recovery                
+2025-08-21 17:03:16,730 - INFO - ccts.agent - Firm CE_F181 completed project  Waste heat recovery                
+2025-08-21 17:03:16,730 - INFO - ccts.agent - Firm CE_F160 completed project  Waste heat recovery                
+2025-08-21 17:03:16,731 - INFO - ccts.agent - Firm CE_F119 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,731 - INFO - ccts.agent - Firm CE_F95  completed project  Waste heat recovery                
+2025-08-21 17:03:16,735 - INFO - ccts.agent - Firm CE_F77  completed project  Waste heat recovery                
+2025-08-21 17:03:16,736 - INFO - ccts.agent - Firm CE_F100 completed project  Waste heat recovery                
+2025-08-21 17:03:16,736 - INFO - ccts.agent - Firm CE_F57  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,738 - INFO - ccts.agent - Firm CE_F155 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,739 - INFO - ccts.agent - Firm CE_F16  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,739 - INFO - ccts.agent - Firm CE_F16  completed project  Waste heat recovery                
+2025-08-21 17:03:16,740 - INFO - ccts.agent - Firm CE_F117 completed project  Waste heat recovery                
+2025-08-21 17:03:16,741 - INFO - ccts.agent - Firm CE_F24  completed project  Waste heat recovery                
+2025-08-21 17:03:16,742 - INFO - ccts.agent - Firm CE_F63  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,743 - INFO - ccts.agent - Firm CE_F63  completed project  Waste heat recovery                
+2025-08-21 17:03:16,744 - INFO - ccts.agent - Firm CE_F28  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,746 - INFO - ccts.agent - Firm CE_F34  completed project  Waste heat recovery                
+2025-08-21 17:03:16,747 - INFO - ccts.agent - Firm CE_F94  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,747 - INFO - ccts.agent - Firm CE_F104 completed project  Waste heat recovery                
+2025-08-21 17:03:16,748 - INFO - ccts.agent - Firm CE_F143 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,749 - INFO - ccts.agent - Firm CE_F45  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,749 - INFO - ccts.agent - Firm CE_F45  completed project  Waste heat recovery                
+2025-08-21 17:03:16,751 - INFO - ccts.agent - Firm CE_F170 completed project  Waste heat recovery                
+2025-08-21 17:03:16,751 - INFO - ccts.agent - Firm CE_F10  completed project  Waste heat recovery                
+2025-08-21 17:03:16,752 - INFO - ccts.agent - Firm CE_F65  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,753 - INFO - ccts.agent - Firm CE_F3   completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,754 - INFO - ccts.agent - Firm CE_F1   completed project  Waste heat recovery                
+2025-08-21 17:03:16,755 - INFO - ccts.agent - Firm CE_F13  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,755 - INFO - ccts.agent - Firm CE_F13  completed project  Waste heat recovery                
+2025-08-21 17:03:16,756 - INFO - ccts.agent - Firm CE_F84  completed project  Waste heat recovery                
+2025-08-21 17:03:16,757 - INFO - ccts.agent - Firm CE_F46  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,758 - INFO - ccts.agent - Firm CE_F27  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,759 - INFO - ccts.agent - Firm CE_F116 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,760 - INFO - ccts.agent - Firm CE_F178 completed project  Waste heat recovery                
+2025-08-21 17:03:16,761 - INFO - ccts.agent - Firm CE_F58  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,761 - INFO - ccts.agent - Firm CE_F175 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,762 - INFO - ccts.agent - Firm CE_F8   completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,764 - INFO - ccts.agent - Firm CE_F38  completed project  Waste heat recovery                
+2025-08-21 17:03:16,765 - INFO - ccts.agent - Firm CE_F79  completed project  Waste heat recovery                
+2025-08-21 17:03:16,766 - INFO - ccts.agent - Firm CE_F142 completed project  Waste heat recovery                
+2025-08-21 17:03:16,767 - INFO - ccts.agent - Firm CE_F123 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,768 - INFO - ccts.agent - Firm CE_F171 completed project  Waste heat recovery                
+2025-08-21 17:03:16,769 - INFO - ccts.agent - Firm CE_F138 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,770 - INFO - ccts.agent - Firm CE_F161 completed project  Waste heat recovery                
+2025-08-21 17:03:16,770 - INFO - ccts.agent - Firm CE_F88  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,771 - INFO - ccts.agent - Firm CE_F115 completed project  Waste heat recovery                
+2025-08-21 17:03:16,772 - INFO - ccts.agent - Firm CE_F139 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,772 - INFO - ccts.agent - Firm CE_F139 completed project  Waste heat recovery                
+2025-08-21 17:03:16,773 - INFO - ccts.agent - Firm CE_F72  completed project  Waste heat recovery                
+2025-08-21 17:03:16,774 - INFO - ccts.agent - Firm CE_F168 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,774 - INFO - ccts.agent - Firm CE_F39  completed project  Waste heat recovery                
+2025-08-21 17:03:16,775 - INFO - ccts.agent - Firm CE_F82  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,775 - INFO - ccts.agent - Firm CE_F5   completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,831 - INFO - __main__ - Completed Step 6 (Year 2025, Month 6): Carbon Price ₹5293.34, Market Volume: 0.00
+2025-08-21 17:03:16,832 - INFO - ccts.agent - Firm CE_F138 completed project  Waste heat recovery                
+2025-08-21 17:03:16,835 - INFO - ccts.agent - Firm CE_F144 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,836 - INFO - ccts.agent - Firm AL_F15  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,836 - INFO - ccts.agent - Firm AL_F15  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,836 - INFO - ccts.agent - Firm CE_F109 completed project  Waste heat recovery                
+2025-08-21 17:03:16,838 - INFO - ccts.agent - Firm CE_F85  completed project  Waste heat recovery                
+2025-08-21 17:03:16,838 - INFO - ccts.agent - Firm CE_F164 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,839 - INFO - ccts.agent - Firm CE_F53  completed project  Waste heat recovery                
+2025-08-21 17:03:16,839 - INFO - ccts.agent - Firm CE_F185 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,839 - INFO - ccts.agent - Firm CE_F185 completed project  Waste heat recovery                
+2025-08-21 17:03:16,841 - INFO - ccts.agent - Firm CE_F118 completed project  Waste heat recovery                
+2025-08-21 17:03:16,843 - INFO - ccts.agent - Firm CE_F60  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,843 - INFO - ccts.agent - Firm CE_F60  completed project  Waste heat recovery                
+2025-08-21 17:03:16,845 - INFO - ccts.agent - Firm CE_F73  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,845 - INFO - ccts.agent - Firm CE_F73  completed project  Waste heat recovery                
+2025-08-21 17:03:16,848 - INFO - ccts.agent - Firm CE_F77  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,849 - INFO - ccts.agent - Firm CE_F171 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,851 - INFO - ccts.agent - Firm CE_F157 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,852 - INFO - ccts.agent - Firm CE_F102 completed project  Waste heat recovery                
+2025-08-21 17:03:16,853 - INFO - ccts.agent - Firm CE_F88  completed project  Waste heat recovery                
+2025-08-21 17:03:16,853 - INFO - ccts.agent - Firm CE_F108 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,853 - INFO - ccts.agent - Firm CE_F108 completed project  Waste heat recovery                
+2025-08-21 17:03:16,854 - INFO - ccts.agent - Firm CE_F92  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,855 - INFO - ccts.agent - Firm CE_F104 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,856 - INFO - ccts.agent - Firm CE_F75  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,857 - INFO - ccts.agent - Firm AL_F14  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,857 - INFO - ccts.agent - Firm CE_F28  completed project  Waste heat recovery                
+2025-08-21 17:03:16,858 - INFO - ccts.agent - Firm CE_F184 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,859 - INFO - ccts.agent - Firm AL_F4   completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,859 - INFO - ccts.agent - Firm AL_F4   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,860 - INFO - ccts.agent - Firm CE_F160 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,863 - INFO - ccts.agent - Firm CE_F68  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,864 - INFO - ccts.agent - Firm CE_F122 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,866 - INFO - ccts.agent - Firm CE_F20  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,867 - INFO - ccts.agent - Firm CE_F148 completed project  Waste heat recovery                
+2025-08-21 17:03:16,869 - INFO - ccts.agent - Firm CE_F22  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,870 - INFO - ccts.agent - Firm CE_F50  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,871 - INFO - ccts.agent - Firm CE_F71  completed project  Waste heat recovery                
+2025-08-21 17:03:16,871 - INFO - ccts.agent - Firm CE_F18  completed project  Waste heat recovery                
+2025-08-21 17:03:16,872 - INFO - ccts.agent - Firm CE_F15  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,872 - INFO - ccts.agent - Firm CE_F49  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,872 - INFO - ccts.agent - Firm CE_F49  completed project  Waste heat recovery                
+2025-08-21 17:03:16,874 - INFO - ccts.agent - Firm CE_F129 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,875 - INFO - ccts.agent - Firm CE_F183 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,876 - INFO - ccts.agent - Firm AL_F7   completed project  Aluminium energy efficiency        
+2025-08-21 17:03:16,877 - INFO - ccts.agent - Firm CE_F123 completed project  Waste heat recovery                
+2025-08-21 17:03:16,878 - INFO - ccts.agent - Firm CE_F154 completed project  Waste heat recovery                
+2025-08-21 17:03:16,880 - INFO - ccts.agent - Firm CE_F80  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,880 - INFO - ccts.agent - Firm CE_F101 completed project  Waste heat recovery                
+2025-08-21 17:03:16,881 - INFO - ccts.agent - Firm CE_F54  completed project  Waste heat recovery                
+2025-08-21 17:03:16,881 - INFO - ccts.agent - Firm CE_F132 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,882 - INFO - ccts.agent - Firm CE_F132 completed project  Waste heat recovery                
+2025-08-21 17:03:16,882 - INFO - ccts.agent - Firm CE_F70  completed project  Waste heat recovery                
+2025-08-21 17:03:16,883 - INFO - ccts.agent - Firm CE_F158 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,884 - INFO - ccts.agent - Firm CE_F156 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,884 - INFO - ccts.agent - Firm CE_F6   completed project  Waste heat recovery                
+2025-08-21 17:03:16,885 - INFO - ccts.agent - Firm CE_F98  completed project  Waste heat recovery                
+2025-08-21 17:03:16,886 - INFO - ccts.agent - Firm CE_F33  completed project  Waste heat recovery                
+2025-08-21 17:03:16,887 - INFO - ccts.agent - Firm CE_F76  completed project  Waste heat recovery                
+2025-08-21 17:03:16,888 - INFO - ccts.agent - Firm AL_F16  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,889 - INFO - ccts.agent - Firm CE_F153 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,890 - INFO - ccts.agent - Firm CE_F176 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,892 - INFO - ccts.agent - Firm CE_F186 completed project  Waste heat recovery                
+2025-08-21 17:03:16,892 - INFO - ccts.agent - Firm CE_F172 completed project  Waste heat recovery                
+2025-08-21 17:03:16,894 - INFO - ccts.agent - Firm CE_F113 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,895 - INFO - ccts.agent - Firm CE_F149 completed project  Waste heat recovery                
+2025-08-21 17:03:16,898 - INFO - ccts.agent - Firm CE_F112 completed project  Waste heat recovery                
+2025-08-21 17:03:16,899 - INFO - ccts.agent - Firm AL_F9   completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,899 - INFO - ccts.agent - Firm CE_F151 completed project  Waste heat recovery                
+2025-08-21 17:03:16,900 - INFO - ccts.agent - Firm CE_F36  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,900 - INFO - ccts.agent - Firm CE_F81  completed project  Waste heat recovery                
+2025-08-21 17:03:16,901 - INFO - ccts.agent - Firm CE_F111 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,901 - INFO - ccts.agent - Firm CE_F126 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,902 - INFO - ccts.agent - Firm CE_F126 completed project  Waste heat recovery                
+2025-08-21 17:03:16,902 - INFO - ccts.agent - Firm AL_F10  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,903 - INFO - ccts.agent - Firm CE_F12  completed project  Waste heat recovery                
+2025-08-21 17:03:16,903 - INFO - ccts.agent - Firm CE_F3   completed project  Waste heat recovery                
+2025-08-21 17:03:16,904 - INFO - ccts.agent - Firm AL_F13  completed project  Alumina energy efficiency          
+2025-08-21 17:03:16,905 - INFO - ccts.agent - Firm CE_F62  completed project  Waste heat recovery                
+2025-08-21 17:03:16,907 - INFO - ccts.agent - Firm CE_F55  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,907 - INFO - ccts.agent - Firm CE_F83  completed project  Waste heat recovery                
+2025-08-21 17:03:16,908 - INFO - ccts.agent - Firm CE_F163 completed project  Waste heat recovery                
+2025-08-21 17:03:16,908 - INFO - ccts.agent - Firm CE_F170 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,909 - INFO - ccts.agent - Firm CE_F86  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,910 - INFO - ccts.agent - Firm CE_F67  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,910 - INFO - ccts.agent - Firm CE_F67  completed project  Waste heat recovery                
+2025-08-21 17:03:16,912 - INFO - ccts.agent - Firm CE_F178 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,912 - INFO - ccts.agent - Firm CE_F179 completed project  Waste heat recovery                
+2025-08-21 17:03:16,913 - INFO - ccts.agent - Firm CE_F42  completed project  Waste heat recovery                
+2025-08-21 17:03:16,914 - INFO - ccts.agent - Firm CE_F97  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,915 - INFO - ccts.agent - Firm CE_F51  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,916 - INFO - ccts.agent - Firm CE_F140 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,919 - INFO - ccts.agent - Firm CE_F66  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,919 - INFO - ccts.agent - Firm CE_F66  completed project  Waste heat recovery                
+2025-08-21 17:03:16,920 - INFO - ccts.agent - Firm CE_F26  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,921 - INFO - ccts.agent - Firm CE_F58  completed project  Waste heat recovery                
+2025-08-21 17:03:16,922 - INFO - ccts.agent - Firm CE_F125 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,922 - INFO - ccts.agent - Firm CE_F125 completed project  Waste heat recovery                
+2025-08-21 17:03:16,923 - INFO - ccts.agent - Firm CE_F106 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,924 - INFO - ccts.agent - Firm CE_F14  completed project  Waste heat recovery                
+2025-08-21 17:03:16,924 - INFO - ccts.agent - Firm CE_F30  completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,925 - INFO - ccts.agent - Firm CE_F120 completed project  Waste heat recovery                
+2025-08-21 17:03:16,926 - INFO - ccts.agent - Firm CE_F130 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,926 - INFO - ccts.agent - Firm CE_F130 completed project  Waste heat recovery                
+2025-08-21 17:03:16,928 - INFO - ccts.agent - Firm CE_F150 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,928 - INFO - ccts.agent - Firm CE_F127 completed project  Waste heat recovery                
+2025-08-21 17:03:16,929 - INFO - ccts.agent - Firm CE_F100 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,930 - INFO - ccts.agent - Firm CE_F174 completed project  Efficient electrical equipment     
+2025-08-21 17:03:16,931 - INFO - ccts.agent - Firm CE_F105 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,003 - INFO - ccts.agent - Firm CE_F64  completed project  Waste heat recovery                
+2025-08-21 17:03:17,004 - INFO - ccts.agent - Firm AL_F8   completed project  Alumina energy efficiency          
+2025-08-21 17:03:17,005 - INFO - ccts.agent - Firm CE_F122 completed project  Waste heat recovery                
+2025-08-21 17:03:17,006 - INFO - ccts.agent - Firm CE_F57  completed project  Waste heat recovery                
+2025-08-21 17:03:17,007 - INFO - ccts.agent - Firm CE_F96  completed project  Waste heat recovery                
+2025-08-21 17:03:17,008 - INFO - ccts.agent - Firm CE_F56  completed project  Waste heat recovery                
+2025-08-21 17:03:17,009 - INFO - ccts.agent - Firm CE_F40  completed project  Waste heat recovery                
+2025-08-21 17:03:17,009 - INFO - ccts.agent - Firm CE_F143 completed project  Waste heat recovery                
+2025-08-21 17:03:17,012 - INFO - ccts.agent - Firm CE_F152 completed project  Waste heat recovery                
+2025-08-21 17:03:17,013 - INFO - ccts.agent - Firm CE_F47  completed project  Waste heat recovery                
+2025-08-21 17:03:17,013 - INFO - ccts.agent - Firm CE_F21  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,014 - INFO - ccts.agent - Firm CE_F2   completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,014 - INFO - ccts.agent - Firm CE_F2   completed project  Waste heat recovery                
+2025-08-21 17:03:17,015 - INFO - ccts.agent - Firm AL_F5   completed project  Alumina energy efficiency          
+2025-08-21 17:03:17,016 - INFO - ccts.agent - Firm CE_F182 completed project  Waste heat recovery                
+2025-08-21 17:03:17,017 - INFO - ccts.agent - Firm CE_F52  completed project  Waste heat recovery                
+2025-08-21 17:03:17,018 - INFO - ccts.agent - Firm CE_F113 completed project  Waste heat recovery                
+2025-08-21 17:03:17,019 - INFO - ccts.agent - Firm CE_F177 completed project  Waste heat recovery                
+2025-08-21 17:03:17,020 - INFO - ccts.agent - Firm CE_F27  completed project  Waste heat recovery                
+2025-08-21 17:03:17,021 - INFO - ccts.agent - Firm CE_F43  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,021 - INFO - ccts.agent - Firm CE_F7   completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,022 - INFO - ccts.agent - Firm CE_F179 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,023 - INFO - ccts.agent - Firm CE_F156 completed project  Waste heat recovery                
+2025-08-21 17:03:17,024 - INFO - ccts.agent - Firm CE_F147 completed project  Waste heat recovery                
+2025-08-21 17:03:17,025 - INFO - ccts.agent - Firm CE_F111 completed project  Waste heat recovery                
+2025-08-21 17:03:17,027 - INFO - ccts.agent - Firm CE_F162 completed project  Waste heat recovery                
+2025-08-21 17:03:17,027 - INFO - ccts.agent - Firm CE_F61  completed project  Waste heat recovery                
+2025-08-21 17:03:17,028 - INFO - ccts.agent - Firm CE_F107 completed project  Waste heat recovery                
+2025-08-21 17:03:17,029 - INFO - ccts.agent - Firm CE_F37  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,029 - INFO - ccts.agent - Firm CE_F92  completed project  Waste heat recovery                
+2025-08-21 17:03:17,030 - INFO - ccts.agent - Firm CE_F19  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,030 - INFO - ccts.agent - Firm CE_F19  completed project  Waste heat recovery                
+2025-08-21 17:03:17,031 - INFO - ccts.agent - Firm CE_F109 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,031 - INFO - ccts.agent - Firm AL_F12  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:17,033 - INFO - ccts.agent - Firm CE_F155 completed project  Waste heat recovery                
+2025-08-21 17:03:17,035 - INFO - ccts.agent - Firm CE_F23  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,036 - INFO - ccts.agent - Firm CE_F183 completed project  Waste heat recovery                
+2025-08-21 17:03:17,037 - INFO - ccts.agent - Firm CE_F84  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,038 - INFO - ccts.agent - Firm CE_F102 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,039 - INFO - ccts.agent - Firm CE_F166 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,041 - INFO - ccts.agent - Firm CE_F120 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,042 - INFO - ccts.agent - Firm CE_F31  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,043 - INFO - ccts.agent - Firm CE_F50  completed project  Waste heat recovery                
+2025-08-21 17:03:17,044 - INFO - ccts.agent - Firm CE_F119 completed project  Waste heat recovery                
+2025-08-21 17:03:17,045 - INFO - ccts.agent - Firm AL_F11  completed project  Aluminium energy efficiency        
+2025-08-21 17:03:17,046 - INFO - ccts.agent - Firm CE_F164 completed project  Waste heat recovery                
+2025-08-21 17:03:17,047 - INFO - ccts.agent - Firm CE_F165 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,047 - INFO - ccts.agent - Firm CE_F165 completed project  Waste heat recovery                
+2025-08-21 17:03:17,050 - INFO - ccts.agent - Firm CE_F118 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,051 - INFO - ccts.agent - Firm CE_F26  completed project  Waste heat recovery                
+2025-08-21 17:03:17,052 - INFO - ccts.agent - Firm CE_F74  completed project  Waste heat recovery                
+2025-08-21 17:03:17,053 - INFO - ccts.agent - Firm CE_F85  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,054 - INFO - ccts.agent - Firm CE_F176 completed project  Waste heat recovery                
+2025-08-21 17:03:17,056 - INFO - ccts.agent - Firm CE_F30  completed project  Waste heat recovery                
+2025-08-21 17:03:17,057 - INFO - ccts.agent - Firm CE_F17  completed project  Waste heat recovery                
+2025-08-21 17:03:17,059 - INFO - ccts.agent - Firm CE_F149 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,060 - INFO - ccts.agent - Firm AL_F6   completed project  Alumina energy efficiency          
+2025-08-21 17:03:17,061 - INFO - ccts.agent - Firm CE_F114 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,063 - INFO - ccts.agent - Firm CE_F142 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,067 - INFO - ccts.agent - Firm CE_F25  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,068 - INFO - ccts.agent - Firm CE_F124 completed project  Waste heat recovery                
+2025-08-21 17:03:17,069 - INFO - ccts.agent - Firm CE_F71  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,070 - INFO - ccts.agent - Firm CE_F6   completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,071 - INFO - ccts.agent - Firm CE_F35  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,071 - INFO - ccts.agent - Firm CE_F59  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,072 - INFO - ccts.agent - Firm CE_F82  completed project  Waste heat recovery                
+2025-08-21 17:03:17,072 - INFO - ccts.agent - Firm CE_F173 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,074 - INFO - ccts.agent - Firm CE_F184 completed project  Waste heat recovery                
+2025-08-21 17:03:17,077 - INFO - ccts.agent - Firm CE_F93  completed project  Waste heat recovery                
+2025-08-21 17:03:17,078 - INFO - ccts.agent - Firm CE_F9   completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,079 - INFO - ccts.agent - Firm CE_F133 completed project  Waste heat recovery                
+2025-08-21 17:03:17,082 - INFO - ccts.agent - Firm CE_F175 completed project  Waste heat recovery                
+2025-08-21 17:03:17,082 - INFO - ccts.agent - Firm CE_F167 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,083 - INFO - ccts.agent - Firm CE_F167 completed project  Waste heat recovery                
+2025-08-21 17:03:17,084 - INFO - ccts.agent - Firm CE_F159 completed project  Waste heat recovery                
+2025-08-21 17:03:17,085 - INFO - ccts.agent - Firm CE_F128 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,087 - INFO - ccts.agent - Firm CE_F44  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,087 - INFO - ccts.agent - Firm CE_F146 completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,087 - INFO - ccts.agent - Firm CE_F146 completed project  Waste heat recovery                
+2025-08-21 17:03:17,088 - INFO - ccts.agent - Firm CE_F158 completed project  Waste heat recovery                
+2025-08-21 17:03:17,089 - INFO - ccts.agent - Firm CE_F53  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,091 - INFO - ccts.agent - Firm CE_F153 completed project  Waste heat recovery                
+2025-08-21 17:03:17,091 - INFO - ccts.agent - Firm CE_F34  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,092 - INFO - ccts.agent - Firm CE_F51  completed project  Waste heat recovery                
+2025-08-21 17:03:17,093 - INFO - ccts.agent - Firm CE_F14  completed project  Efficient electrical equipment     
+2025-08-21 17:03:17,095 - INFO - ccts.agent - Firm CE_F65  completed project  Waste heat recovery                
+2025-08-21 17:03:17,096 - INFO - ccts.agent - Firm CE_F116 completed project  Waste heat recovery                
+2025-08-21 17:03:17,098 - INFO - ccts.agent - Firm CE_F174 completed project  Waste heat recovery                
+2025-08-21 17:03:17,629 - INFO - ccts.market - Annual compliance check complete for 2025. 108 non-compliant entities
+2025-08-21 17:03:17,629 - INFO - ccts.market - Non-compliant: CE_F69  (Gap: 111264.55, Penalty: ₹33379365600.00)
+2025-08-21 17:03:17,629 - INFO - ccts.market - Non-compliant: CE_F59  (Gap: 311394.24, Penalty: ₹93418272000.00)
+2025-08-21 17:03:17,629 - INFO - ccts.market - Non-compliant: CE_F128 (Gap: 444969.56, Penalty: ₹133490867400.00)
+2025-08-21 17:03:17,629 - INFO - ccts.market - Non-compliant: CE_F30  (Gap: 221243.57, Penalty: ₹66373071300.00)
+2025-08-21 17:03:17,630 - INFO - ccts.market - Non-compliant: CE_F113 (Gap: 154275.01, Penalty: ₹46282503600.00)
+2025-08-21 17:03:17,772 - INFO - ccts.model - === YEAR 2025 SUMMARY ===
+2025-08-21 17:03:17,772 - INFO - ccts.model - Carbon Price: ₹6541.92
+2025-08-21 17:03:17,772 - INFO - ccts.model - Total Annual Emissions: 3203727021.73 tonnes
+2025-08-21 17:03:17,772 - INFO - ccts.model - Total Annual Production: 5376975902.27 units
+2025-08-21 17:03:17,772 - INFO - ccts.model - Total Abatement: 38999987.85 tonnes
+2025-08-21 17:03:17,773 - INFO - ccts.model - Average Intensity: 0.5958 tonnes/unit
+2025-08-21 17:03:17,773 - INFO - ccts.model - Compliance Rate: 46.5%
+2025-08-21 17:03:17,773 - INFO - ccts.model - Total Trades: 0
+2025-08-21 17:03:17,773 - INFO - ccts.model - Market Volume: 0.00 credits
+2025-08-21 17:03:17,773 - INFO - ccts.model - market_stability_reserve_fund: ₹1000000.00
+2025-08-21 17:03:17,773 - INFO - ccts.model - market_stability_reserve_credits: 1000.00 credits
+2025-08-21 17:03:17,773 - INFO - ccts.model - ==============================
+2025-08-21 17:03:18,005 - INFO - __main__ - Completed Step 12 (Year 2025, Month 12): Carbon Price ₹6850.90, Market Volume: 0.00
+2025-08-21 17:03:18,084 - WARNING - ccts.market - Market stress detected - initiating emergency intervention.
+2025-08-21 17:03:18,084 - WARNING - ccts.market - Emergency sell liquidity: 200.00 @ ₹7533.49
+2025-08-21 17:03:18,358 - INFO - ccts.market - Trade executed: 200.00 credits @ ₹7813.06 (CE_F70  ← MarketStabilityReserve)
+2025-08-21 17:03:18,358 - INFO - ccts.market - Executed 1 limit trades, volume: 200.00
+2025-08-21 17:03:19,600 - INFO - __main__ - Completed Step 18 (Year 2026, Month 6): Carbon Price ₹9042.53, Market Volume: 0.00
+2025-08-21 17:03:20,898 - INFO - ccts.market - Annual compliance check complete for 2026. 48 non-compliant entities
+2025-08-21 17:03:20,898 - INFO - ccts.market - Non-compliant: CE_F117 (Gap: 310294.12, Penalty: ₹93088234800.00)
+2025-08-21 17:03:20,898 - INFO - ccts.market - Non-compliant: CE_F87  (Gap: 4525.59, Penalty: ₹1357676100.00)
+2025-08-21 17:03:20,899 - INFO - ccts.market - Non-compliant: CE_F111 (Gap: 322505.96, Penalty: ₹96751789200.00)
+2025-08-21 17:03:20,899 - INFO - ccts.market - Non-compliant: CE_F83  (Gap: 3470.35, Penalty: ₹1041103800.00)
+2025-08-21 17:03:20,899 - INFO - ccts.market - Non-compliant: CE_F65  (Gap: 13396.68, Penalty: ₹4019004000.00)
+2025-08-21 17:03:21,164 - INFO - ccts.model - === YEAR 2026 SUMMARY ===
+2025-08-21 17:03:21,164 - INFO - ccts.model - Carbon Price: ₹11402.44
+2025-08-21 17:03:21,164 - INFO - ccts.model - Total Annual Emissions: 3054915440.58 tonnes
+2025-08-21 17:03:21,164 - INFO - ccts.model - Total Annual Production: 5376975902.10 units
+2025-08-21 17:03:21,165 - INFO - ccts.model - Total Abatement: 38999987.85 tonnes
+2025-08-21 17:03:21,165 - INFO - ccts.model - Average Intensity: 0.5681 tonnes/unit
+2025-08-21 17:03:21,165 - INFO - ccts.model - Compliance Rate: 76.2%
+2025-08-21 17:03:21,165 - INFO - ccts.model - Total Trades: 1
+2025-08-21 17:03:21,166 - INFO - ccts.model - Market Volume: 200.00 credits
+2025-08-21 17:03:21,166 - INFO - ccts.model - market_stability_reserve_fund: ₹2562611.93
+2025-08-21 17:03:21,166 - INFO - ccts.model - market_stability_reserve_credits: 800.00 credits
+2025-08-21 17:03:21,166 - INFO - ccts.model - ==============================
+2025-08-21 17:03:21,509 - INFO - __main__ - Completed Step 24 (Year 2026, Month 12): Carbon Price ₹11944.26, Market Volume: 0.00
+2025-08-21 17:03:21,510 - INFO - __main__ - Simulation completed successfully
+2025-08-21 17:03:21,510 - INFO - __main__ - Collecting and analyzing simulation results...
+2025-08-21 17:03:21,573 - INFO - __main__ - Creating visualizations...
+2025-08-21 17:03:22,684 - INFO - __main__ - Saved visualization: output\simulation_results.png
+2025-08-21 17:03:23,266 - INFO - __main__ - Saved sector analysis plot
+2025-08-21 17:03:23,266 - INFO - __main__ - Saving results...
+2025-08-21 17:03:23,267 - INFO - __main__ - Saving results to: output
+2025-08-21 17:03:23,278 - INFO - __main__ - Saved yearly summary data.
+2025-08-21 17:03:23,291 - INFO - __main__ - Saved agent compliance gap history.
+2025-08-21 17:03:23,307 - INFO - __main__ - Saved agent financial history.
+2025-08-21 17:03:23,309 - INFO - __main__ - Saved model_data.csv: 24 rows
+2025-08-21 17:03:23,369 - INFO - __main__ - Saved agent_data.csv: 4848 rows
+2025-08-21 17:03:23,370 - INFO - __main__ - Saved transactions_log.csv: 1 rows
+2025-08-21 17:03:23,388 - INFO - __main__ - Saved initial_firms_data.csv: 202 rows
+2025-08-21 17:03:23,398 - INFO - __main__ - Saved initial_macc_data.csv: 3710 rows
+2025-08-21 17:03:23,503 - INFO - __main__ - Saved normalized order book history: 34967 records
+2025-08-21 17:03:23,504 - INFO - __main__ - Saved simulation configuration
+2025-08-21 17:03:23,509 - INFO - __main__ - Saved analysis results
+2025-08-21 17:03:23,509 - INFO - __main__ - Saved summary report
+2025-08-21 17:03:23,513 - INFO - __main__ - ============================================================
+2025-08-21 17:03:23,513 - INFO - __main__ - SIMULATION COMPLETED SUCCESSFULLY
+2025-08-21 17:03:23,513 - INFO - __main__ - ============================================================
+2025-08-21 17:03:23,513 - INFO - __main__ - Final Carbon Price: ₹11944.26
+2025-08-21 17:03:23,513 - INFO - __main__ - Total Transactions: 1
+2025-08-21 17:03:23,514 - INFO - __main__ - Market Efficiency: 0.04 transactions/step
+2025-08-21 17:03:23,514 - INFO - __main__ - Final Compliance Rate: 76.2%
+2025-08-21 17:03:23,514 - INFO - __main__ - Results saved to: output
+2025-08-21 17:03:23,514 - INFO - __main__ - ============================================================

@@ -1,0 +1,11 @@
+parameter,value
+market_maker_reserve,100000
+market_maker_cash,50000000000
+credit_validity,5
+penalty_rate,300000
+min_price,1500
+max_price,20000
+price_sensitivity,0.05
+base_volatility,0.01
+max_daily_change,0.15
+liquidity_spread,0.02

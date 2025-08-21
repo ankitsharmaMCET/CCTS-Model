@@ -1,0 +1,9 @@
+parameter,value
+num_steps,24
+steps_per_year,12
+start_year,2025
+coverage_threshold,250000000
+initial_carbon_price,4000
+random_seed,42
+save_intermediate_results,True
+enable_MarketStabilityReserve, True

@@ -1,0 +1,39 @@
+============================================================
+CCTS SIMULATION ANALYSIS REPORT
+============================================================
+
+SIMULATION NARRATIVE SUMMARY:
+This simulation, running for 2 years, concluded with a final carbon price of ₹11944.26. The overall compliance rate was 76.2%, indicating a high degree of compliance with the CCTS regulations. A total of 38999987.85 tonnes of CO2e were abated over the simulation period, and the market saw 1 transactions.
+
+SIMULATION OVERVIEW:
+- Years Completed: 2
+- Total Agents: 202
+- Covered Entities: 202
+- Final Carbon Price: ₹11944.26
+
+COMPLIANCE PERFORMANCE:
+- Overall Compliance Rate: 76.2%
+- Total Compliance Gap: 3262944.71 tonnes
+- Actual vs Target Intensity Gap: -0.5333
+
+MARKET PERFORMANCE:
+- Total Trading Volume: 200.00 credits
+- Total Transactions: 1
+- Average Trade Price: ₹7813.06
+- Price Volatility: nan%
+
+ABATEMENT EFFECTIVENESS:
+- Total Abatement: 38999987.85 tonnes
+- Participation Rate: 100.0%
+- Average per Firm: 193069.25 tonnes
+
+ECONOMIC IMPACTS:
+- Total Profit: ₹-2781936342101.83
+- Firms with Positive Cash: 100.0%
+
+PER-SECTOR PERFORMANCE BREAKDOWN:
+Sector         Firms     Compliant (%)       Abatement (t)       Avg Profit (₹) 
+--------------------------------------------------------------------------------
+ ALUMINIUM     16        100.0               0.00                0.00           
+ CEMENT        186       74.2                0.00                0.00           
+============================================================

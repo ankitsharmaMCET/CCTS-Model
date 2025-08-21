@@ -1,0 +1,9 @@
+,0
+total_abatement,38999987.849999994
+average_abatement_per_firm,193069.24678217818
+median_abatement,71263.41
+firms_with_abatement,202
+abatement_participation_rate,1.0
+max_abatement,4754911.39
+abatement_distribution,"{'count': 202.0, 'mean': 193069.24678217818, 'std': 545403.0482803204, 'min': 11383.48, '25%': 42309.5325, '50%': 71263.41, '75%': 118597.09999999999, 'max': 4754911.39}"
+abatement_by_sector,"{' ALUMINIUM': {'Total': 23203891.64, 'Average': 1450243.23, 'Firms': 16}, ' CEMENT   ': {'Total': 15796096.21, 'Average': 84925.25, 'Firms': 186}}"

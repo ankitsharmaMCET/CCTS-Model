@@ -1,0 +1,19 @@
+parameter,value,type
+num_steps,24.0,config
+steps_per_year,12.0,config
+start_year,2025.0,config
+coverage_threshold,250000000.0,config
+initial_carbon_price,4000.0,config
+random_seed,42.0,config
+save_intermediate_results,True,config
+enable_MarketStabilityReserve, True,config
+market_maker_reserve,100000.0,market
+market_maker_cash,50000000000.0,market
+credit_validity,5.0,market
+penalty_rate,300000.0,market
+min_price,1500.0,market
+max_price,20000.0,market
+price_sensitivity,0.05,market
+base_volatility,0.01,market
+max_daily_change,0.15,market
+liquidity_spread,0.02,market
