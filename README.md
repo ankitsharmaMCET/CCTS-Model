@@ -33,7 +33,7 @@ CCTS-Model/
 │  ├─ analysis.py            # Post-simulation analysis & plotting
 │  ├─ utils.py               # Helpers, dataclasses, typing
 │  └─ config.py              # Config loader & defaults
-├─ real_ccts_input/          # Required input CSVs
+├─ ccts_input/          # Required input CSVs
 │  ├─ firms.csv
 │  ├─ macc.csv
 │  ├─ config.csv
@@ -65,10 +65,10 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # 4) Prepare input data
-# Ensure firms.csv, macc.csv, config.csv, market_params.csv exist in real_ccts_input/
+# Ensure firms.csv, macc.csv, config.csv, market_params.csv exist in ccts_input/
 
 # 5) Run
-python scripts/run_simulation.py real_ccts_input output
+python scripts/run_simulation.py ccts_input output
 ```
 
 On completion, look in `output/` for:
@@ -117,10 +117,10 @@ On completion, look in `output/` for:
 
 ```bash
 # Choose different inputs and output folder
-python scripts/run_simulation.py ./real_ccts_input ./output/run_001
+python scripts/run_simulation.py ./ccts_input ./output/run_001
 
 # With a specific RNG seed (if supported by config.csv)
-python scripts/run_simulation.py ./real_ccts_input ./output/run_seed42
+python scripts/run_simulation.py ./ccts_input ./output/run_seed42
 ```
 
 **Logging:** All major events are written to `ccts_simulation.log`. Increase verbosity via your logging config (inside `config.py` or environment variable, as implemented).
@@ -142,7 +142,7 @@ Common outputs go to `output/plots/` and `output/summary_report.txt`.
 
 - Pin dependencies via `requirements.txt`.
 - Set `seed` in `config.csv`.
-- Archive the exact input directory (`real_ccts_input/`) with your results.
+- Archive the exact input directory (`ccts_input/`) with your results.
 
 ---
 
